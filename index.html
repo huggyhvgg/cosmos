@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="COSMOS — دانشنامه و آزمایشگاه تعاملی اخترفیزیک و فیزیک کوانتومی">
+<title>COSMOS | Explore the Unknown</title>
+<style>
+:root{--ink:#152641;--muted:#62738c;--blue:#2868c9;--cyan:#42a8d7;--paper:#f3f7fc;--card:#fff;--line:#dfe8f3;--shadow:0 14px 38px rgba(29,68,117,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,"Segoe UI",sans-serif;line-height:1.8}a{color:inherit;text-decoration:none}button,select{font:inherit}.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 0}.brand{font-size:1.55rem;font-weight:950;letter-spacing:2px;color:var(--blue)}.brand span{color:var(--cyan)}nav{display:flex;gap:17px;flex-wrap:wrap;color:#40516b;font-size:.9rem}nav a:hover{color:var(--blue)}.btn{border:0;border-radius:999px;padding:9px 16px;background:var(--blue);color:white;font-weight:800;cursor:pointer;display:inline-block}.btn:hover{filter:brightness(1.08)}.btn.light{background:#edf4ff;color:var(--blue);border:1px solid #d9e6f7}.btn:disabled{opacity:.5;cursor:not-allowed}
+.hero{padding:68px 0 58px;background:radial-gradient(ellipse at 76% 28%,#d5ebff 0,transparent 37%),linear-gradient(130deg,#fff,#e9f3ff 62%,#f8fbff)}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.eyebrow{font-weight:900;color:var(--blue);letter-spacing:1px}.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.18;margin:12px 0;color:#152d50}.hero p{font-size:1.08rem;color:var(--muted);max-width:600px}.hero-art{height:340px;border-radius:28px;background:radial-gradient(circle at 50% 48%,#e5f6ff 0 3%,transparent 4%),linear-gradient(145deg,#102543,#315f94 65%,#a0cce9);box-shadow:var(--shadow);position:relative;overflow:hidden;display:grid;place-items:center}.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #ffffff70;border-radius:50%;width:270px;height:95px;transform:rotate(-28deg)}.hero-art:after{width:340px;height:125px;transform:rotate(35deg)}.hero-planet{width:155px;height:155px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff2c9,#d6a35e 32%,#855a70 68%,#1c355d);box-shadow:inset -25px -18px 35px #122440,0 0 60px #bce5ff;z-index:2}.hero-label{position:absolute;bottom:17px;left:20px;color:#fff;font-size:.8rem;opacity:.85}
+section{padding:60px 0}.section-head{text-align:center;margin:0 auto 28px}.section-head h2{font-size:2rem;margin:0 0 5px}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:21px;box-shadow:var(--shadow)}.card h3{margin:7px 0 4px}.card p{color:var(--muted);margin:0 0 10px}.emoji{font-size:2rem}.tag{display:inline-block;background:#edf5ff;color:var(--blue);border-radius:99px;padding:2px 10px;font-size:.78rem;font-weight:800}
+.band{background:linear-gradient(120deg,#eaf4ff,#f8fbff);border-block:1px solid var(--line)}.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.blackhole-visual{height:300px;border-radius:24px;position:relative;overflow:hidden;background:radial-gradient(ellipse at center,#02050b 0 12%,transparent 13%),radial-gradient(ellipse at center,transparent 18%,#fff0a8 20%,#ff9d4b 25%,#a66ac6 31%,transparent 43%),radial-gradient(ellipse at center,#142d51,#050d1b 75%)}.blackhole-visual:before{content:"";position:absolute;inset:40% -10%;border:13px solid #ffcc7caa;border-radius:50%;transform:rotate(-17deg);filter:blur(7px)}.blackhole-visual:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,white 1px,transparent 2px),radial-gradient(circle at 80% 28%,white 1px,transparent 2px),radial-gradient(circle at 70% 80%,white 1px,transparent 2px)}
+.fact{background:white;border-right:4px solid var(--cyan);padding:12px 15px;border-radius:10px;color:#465a75;margin:14px 0}.interactive{background:white;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}.controls-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}.controls-row label{font-weight:800}.controls-row input[type=range]{accent-color:var(--blue);width:min(240px,100%)}.readout{background:#f1f6fd;border-radius:12px;padding:10px 14px;color:#3c5575;font-size:.92rem}
+.blackhole-stage{height:280px;background:radial-gradient(ellipse at center,#142947,#050d1b);border-radius:17px;display:grid;place-items:center;overflow:hidden;position:relative}.bh-ring{width:210px;height:75px;border:13px solid #ffb45e;border-left-color:#a875c9;border-right-color:#f6d99a;border-radius:50%;transform:rotate(-18deg);box-shadow:0 0 24px #ffad58;position:absolute;transition:transform .25s,width .25s,height .25s}.bh-core{width:94px;height:94px;background:#02040a;border-radius:50%;z-index:2;box-shadow:0 0 30px #050914}.bh-caption{position:absolute;bottom:9px;color:#d8e9ff;font-size:.8rem}
+.solar-layout{display:grid;grid-template-columns:1fr 290px;gap:18px;align-items:stretch}.solar-stage{height:350px;border-radius:18px;background:radial-gradient(circle at center,#132b4b,#061326 75%);position:relative;overflow:hidden;display:grid;place-items:center}.sun{width:54px;height:54px;background:radial-gradient(circle at 35% 30%,#fff8b1,#ffb52f 55%,#ef6b24);border-radius:50%;box-shadow:0 0 35px #ffbd48;z-index:2}.orbit-line{position:absolute;border:1px solid #ffffff45;border-radius:50%;width:var(--d);height:var(--d)}.planet-dot{position:absolute;width:var(--s);height:var(--s);background:var(--c);border-radius:50%;left:calc(50% + var(--x));top:calc(50% + var(--y));transform:translate(-50%,-50%);box-shadow:0 0 12px var(--c);cursor:pointer;z-index:3}.planet-dot.active{outline:3px solid #fff;outline-offset:4px}.planet-list{display:grid;gap:8px}.planet-pick{width:100%;text-align:right;background:#f4f8fe;border:1px solid var(--line);border-radius:11px;padding:8px 11px;cursor:pointer;color:var(--ink)}.planet-pick.active{border-color:var(--blue);background:#eaf2ff}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.gallery-item{min-height:190px;border-radius:18px;overflow:hidden;position:relative;background:linear-gradient(135deg,#102340,#557ba8);display:flex;align-items:end;padding:17px;color:white;box-shadow:var(--shadow)}.gallery-item:nth-child(2){background:radial-gradient(circle at 50% 40%,#f7b85f,#8e4f86 23%,#182d59 57%,#081629)}.gallery-item:nth-child(3){background:radial-gradient(ellipse at 50% 20%,#e4b9ff,#775baf 25%,#243b68 60%,#08162a)}.gallery-item:nth-child(4){background:radial-gradient(circle at 30% 40%,#c2e5ff,#4676a7 24%,#142b4d 65%)}.gallery-item:nth-child(5){background:radial-gradient(ellipse at 60% 45%,#f2c28c,#a46d85 20%,#273a69 58%,#071529)}.gallery-item:nth-child(6){background:radial-gradient(circle at 50% 35%,#f9e1a3,#a66b4c 20%,#2c416a 55%,#071629)}.gallery-item strong{position:relative;z-index:2;text-shadow:0 2px 9px #000}.gallery-item:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;text-align:center}.stat b{display:block;font-size:1.65rem;color:var(--blue)}.stat span{color:var(--muted);font-size:.9rem}
+details{background:white;border:1px solid var(--line);border-radius:13px;padding:14px 17px;margin:9px 0}summary{font-weight:900;cursor:pointer}details p{color:var(--muted);margin-bottom:0}footer{background:#142945;color:#eaf2ff;text-align:center;padding:32px 0}footer p{color:#b9cbe0;margin:5px}
+[dir=ltr] body{text-align:left}[dir=ltr] .fact{border-right:0;border-left:4px solid var(--cyan)}[dir=ltr] .planet-pick{text-align:left}
+@media(max-width:820px){nav{display:none}.hero-grid,.feature-grid{grid-template-columns:1fr}.solar-layout{grid-template-columns:1fr}.planet-list{grid-template-columns:repeat(4,1fr)}.planet-pick{text-align:center!important}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid,.gallery{grid-template-columns:1fr}.hero{padding:42px 0}.hero-art{height:260px}.planet-list{grid-template-columns:repeat(2,1fr)}.solar-stage{height:290px}.section-head h2{font-size:1.6rem}}
+
+.voice-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}
+.voice-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.voice-persona{border:1px solid var(--line);border-radius:12px;padding:9px 12px;background:#f7faff;color:var(--ink);max-width:100%}
+.voice-note{background:#fff8e8;border:1px solid #f2dfb4;color:#715624;border-radius:12px;padding:11px 14px;font-size:.9rem;margin:14px 0}
+.chat-log{height:300px;overflow-y:auto;background:#f5f8fd;border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;margin:15px 0}
+.chat-msg{max-width:88%;padding:10px 13px;border-radius:15px;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-msg.bot{background:white;border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.chat-msg.user{background:#e4efff;color:#17365f;align-self:flex-end;border-bottom-right-radius:4px}
+.voice-compose{display:grid;grid-template-columns:1fr auto;gap:9px}
+.voice-compose input{min-width:0;border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:white;color:var(--ink);font:inherit}
+.voice-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
+.voice-status{color:var(--muted);font-size:.88rem;margin-top:10px;min-height:1.7em}
+.voice-small{font-size:.82rem;color:var(--muted)}
+@media(max-width:560px){.voice-compose{grid-template-columns:1fr}.chat-log{height:260px}}
+
+
+/* COSMOS live internet features */
+.live-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.live-card{background:#f7faff;border:1px solid var(--line);border-radius:16px;padding:16px;min-width:0}
+.live-card img{width:100%;max-height:260px;object-fit:cover;border-radius:12px;margin:10px 0}
+.live-card a{color:var(--blue);font-weight:800}
+.live-search{display:grid;grid-template-columns:1fr auto;gap:8px}
+.live-search input{min-width:0;border:1px solid var(--line);border-radius:12px;padding:11px;font:inherit}
+.live-result{padding:12px 0;border-bottom:1px solid var(--line)}
+.live-result:last-child{border:0}
+.live-status{color:var(--muted);font-size:.88rem;min-height:1.6em}
+@media(max-width:700px){.live-grid{grid-template-columns:1fr}.live-search{grid-template-columns:1fr}}
+
+
+/* COSMOS ULTIMATE: expanded science library, neon lab and learning tools */
+:root{--cos-night:#050b1c;--cos-panel:#0b1730;--cos-panel2:#102140;--cos-cyan:#5cecff;--cos-violet:#ad82ff;--cos-pink:#ff72c6;--cos-green:#72f7c5}
+.cosmos-deep{direction:rtl;text-align:right;background:linear-gradient(180deg,#050b1c,#08152b 55%,#050b1c);color:#eaf4ff;position:relative;overflow:hidden}
+.cosmos-deep:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#c8e8ff 1px,transparent 1px),radial-gradient(#74eaff 1px,transparent 1px);background-size:67px 67px,113px 113px;background-position:0 0,31px 42px}
+.cosmos-deep>.wrap{position:relative;z-index:1}
+.cosmos-deep .section-head h2,.cosmos-deep h2,.cosmos-deep h3,.cosmos-deep h4{color:#f3f8ff}
+.cosmos-deep .section-head p,.cosmos-deep p,.cosmos-deep li{color:#c1d0e8}
+.cosmos-deep .section-head{max-width:850px}
+.cosmos-kicker{color:var(--cos-cyan);font-weight:900;letter-spacing:1.5px;font-size:.84rem}
+.cosmos-lead{font-size:1.05rem;line-height:2;color:#d5e5ff!important;max-width:950px;margin:12px auto 26px}
+.cosmos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.cosmos-card{background:linear-gradient(145deg,#10213fdd,#09162ddd);border:1px solid #5cecff38;border-radius:19px;padding:19px;box-shadow:0 8px 35px #0005;transition:transform .22s,border-color .22s,box-shadow .22s}
+.cosmos-card:hover{transform:translateY(-4px);border-color:#5cecffaa;box-shadow:0 12px 40px #1b89b744}
+.cosmos-card .emoji{filter:drop-shadow(0 0 9px #79eaff66)}
+.cosmos-card h3{margin:7px 0;color:#f4f8ff}
+.cosmos-card p{margin:0;color:#bdcde5;font-size:.94rem}
+.cosmos-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid #7feaff65;border-radius:99px;padding:3px 10px;color:#8cecff;font-size:.76rem;font-weight:800;margin:4px 3px}
+.cosmos-deep details{background:linear-gradient(120deg,#0d1c36,#0a162c);border:1px solid #5cecff35;border-radius:14px;margin:10px 0;padding:14px 17px;color:#e8f3ff}
+.cosmos-deep summary{color:#eef7ff;line-height:1.8}
+.cosmos-deep details p{margin:10px 0 3px;line-height:2;color:#c3d5ee}
+.cosmos-deep details ul{padding-right:22px;color:#c3d5ee;line-height:2}
+.cosmos-equation{direction:ltr;text-align:center;background:#071126;border:1px solid #ad82ff66;color:#9defff;border-radius:13px;padding:13px 10px;margin:12px 0;font:700 1.1rem/1.8 "Segoe UI",Tahoma,sans-serif;overflow-wrap:anywhere;box-shadow:inset 0 0 20px #613c9e22}
+.cosmos-note{border-right:4px solid var(--cos-cyan);background:#0b1d38;padding:13px 15px;border-radius:11px;color:#d2e4fa;margin:15px 0}
+.cosmos-note.warning{border-color:#ffc66b;background:#2b2119}
+.cosmos-note.open{border-color:#bb91ff;background:#1e1835}
+.cosmos-toc{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 25px}
+.cosmos-toc a{color:#bfeeff;border:1px solid #68ddff50;background:#0b1b35;padding:7px 12px;border-radius:99px;font-size:.86rem}
+.cosmos-toc a:hover{background:#12365a;border-color:#61eaff}
+.cosmos-table{width:100%;border-collapse:collapse;margin:12px 0;color:#cfe0f6;font-size:.91rem}
+.cosmos-table th,.cosmos-table td{border:1px solid #6da8d344;padding:9px;text-align:right;vertical-align:top}
+.cosmos-table th{color:#8deeff;background:#0c1b35}
+.cosmos-lab{background:linear-gradient(135deg,#080f23,#101c3c 60%,#171132);border:1px solid #8d85ff66;border-radius:24px;padding:18px;box-shadow:0 0 38px #6a52e922}
+.cosmos-lab canvas{display:block;width:100%;height:350px;border-radius:16px;background:#030816;border:1px solid #8beaff35}
+.cosmos-control{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:13px}
+.cosmos-control select,.cosmos-control input,.cosmos-search-input,.academy-option{font:inherit}
+.cosmos-control select,.cosmos-search-input{background:#08162d;color:#eaf6ff;border:1px solid #70dfff70;border-radius:11px;padding:10px 12px;max-width:100%}
+.cosmos-control button,.cosmos-action{border:1px solid #70eaff66;background:linear-gradient(110deg,#15385a,#38235d);color:#f5fbff;border-radius:11px;padding:9px 14px;font-weight:800;cursor:pointer}
+.cosmos-control button:hover,.cosmos-action:hover{filter:brightness(1.2)}
+.cosmos-caption{color:#a9c4e3;font-size:.84rem;margin-top:9px}
+.cosmos-lab-info{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.cosmos-lab-info>div{background:#0b1a33;border:1px solid #65dfff35;border-radius:13px;padding:12px;color:#c5d8ef}
+.cosmos-meter{height:8px;background:#1b3152;border-radius:10px;overflow:hidden;margin-top:7px}.cosmos-meter span{display:block;height:100%;width:65%;background:linear-gradient(90deg,#50e7ff,#a782ff,#ff70c5);border-radius:10px}
+.cosmos-search{background:linear-gradient(145deg,#101d3a,#08152b);border:1px solid #77eaff55;border-radius:22px;padding:19px;box-shadow:0 0 35px #4c9ddd22}
+.cosmos-search-row{display:grid;grid-template-columns:1fr auto;gap:9px}
+.cosmos-search-input{width:100%;min-width:0}
+.cosmos-answer{margin-top:14px;border:1px solid #8a83ff55;background:#09152b;border-radius:15px;padding:15px;min-height:82px;color:#dcecff;line-height:2;white-space:pre-wrap}
+.cosmos-answer a{color:#74eaff;text-decoration:underline}
+.academy-box{background:linear-gradient(140deg,#0c1b35,#10122d);border:1px solid #a27bff66;border-radius:23px;padding:20px}
+.academy-progress{height:10px;background:#263758;border-radius:20px;overflow:hidden;margin:8px 0 15px}.academy-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#5deeff,#9c7cff,#ff71c4);transition:width .3s}
+.academy-question{font-size:1.12rem;font-weight:900;color:#eff7ff;margin:12px 0}
+.academy-options{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.academy-option{border:1px solid #6dbfe866;background:#0d2140;color:#dcecff;border-radius:12px;padding:11px;text-align:right;cursor:pointer}
+.academy-option:hover{border-color:#75edff;background:#123053}
+.academy-option.selected{border-color:#c39aff;background:#2a2051}
+.academy-option.correct{border-color:#72f7c5;background:#103e3a}
+.academy-option.wrong{border-color:#ff9d9d;background:#49222b}
+.academy-feedback{min-height:55px;color:#c9dafa;margin:12px 0}
+.academy-meta{display:flex;gap:15px;flex-wrap:wrap;color:#a9c4e3;font-size:.9rem}
+.cosmos-source-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cosmos-source-list a{display:block;background:#0c1c36;border:1px solid #6bdbff44;border-radius:12px;padding:12px;color:#a6eaff}
+.cosmos-source-list a:hover{border-color:#8ef0ff;background:#11294a}
+.deep-footer-note{color:#829bbd!important;font-size:.84rem;text-align:center;margin-top:20px}
+@media(max-width:820px){.cosmos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cosmos-lab-info{grid-template-columns:1fr}}
+@media(max-width:560px){.cosmos-grid,.cosmos-source-list{grid-template-columns:1fr}.cosmos-search-row{grid-template-columns:1fr}.academy-options{grid-template-columns:1fr}.cosmos-lab canvas{height:270px}.cosmos-deep section{padding:43px 0}.cosmos-equation{font-size:.96rem}}
+@media(prefers-reduced-motion:reduce){.cosmos-card{transition:none}html{scroll-behavior:auto}}
+
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070b1c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="COSMOS">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#">COS<span>MOS</span></a>
+<nav><a href="#topics" data-fa="کاوش" data-en="Explore">کاوش</a><a href="#blackholes" data-fa="سیاه‌چاله‌ها" data-en="Black holes">سیاه‌چاله‌ها</a><a href="#astrophysics">اخترفیزیک</a><a href="#quantum">کوانتوم</a><a href="#space-lab">آزمایشگاه ۳بعدی</a><a href="#academy">آکادمی</a><a href="#dashboard" data-fa="داشبورد" data-en="Dashboard">داشبورد</a><a href="#live" data-fa="اطلاعات زنده" data-en="Live data">اطلاعات زنده</a><a href="#voice" data-fa="گفت‌وگوی صوتی" data-en="Voice chat">گفت‌وگوی صوتی</a></nav>
+<button class="btn light" id="langBtn">EN</button>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+<div><div class="eyebrow" data-fa="دانش • شگفتی • کاوش" data-en="SCIENCE • WONDER • EXPLORATION">دانش • شگفتی • کاوش</div>
+<h1 data-fa="به دنیای شگفت‌انگیز فضا خوش آمدی" data-en="Welcome to the fascinating universe">به دنیای شگفت‌انگیز فضا خوش آمدی</h1>
+<p data-fa="در COSMOS جهان را از مقیاس کهکشان‌ها تا دنیای کوانتومی کاوش می‌کنی؛ با آزمایشگاه تعاملی، دانشنامهٔ اخترفیزیک، درس‌های دقیق کوانتوم و آکادمی پرسش‌وپاسخ." data-en="At COSMOS, you do more than read about space: experiment with a black hole, explore the Solar System, and discover the universe through science.">در COSMOS جهان را از مقیاس کهکشان‌ها تا دنیای کوانتومی کاوش می‌کنی؛ با آزمایشگاه تعاملی، دانشنامهٔ اخترفیزیک، درس‌های دقیق کوانتوم و آکادمی پرسش‌وپاسخ.</p>
+<a class="btn" href="#astrophysics" data-fa="ورود به دانشنامهٔ کیهان" data-en="Explore the cosmos">ورود به دانشنامهٔ کیهان</a></div>
+<div class="hero-art"><div class="hero-planet"></div><span class="hero-label">A UNIVERSE OF DISCOVERY</span></div>
+</div></section>
+
+<section id="topics"><div class="wrap"><div class="section-head"><h2 data-fa="در کیهان چه چیزهایی کشف می‌کنیم؟" data-en="What will we discover?">در کیهان چه چیزهایی کشف می‌کنیم؟</h2><p data-fa="چهار دروازه برای ورود به دنیای علم فضا" data-en="Four gateways into space science">چهار دروازه برای ورود به دنیای علم فضا</p></div>
+<div class="grid">
+<article class="card"><div class="emoji">🕳️</div><h3 data-fa="سیاه‌چاله‌ها" data-en="Black holes">سیاه‌چاله‌ها</h3><p data-fa="افق رویداد، تکینگی، قرص برافزایشی و خمیدگی نور را بشناس." data-en="Discover event horizons, singularities, accretion disks, and gravitational lensing.">افق رویداد، تکینگی، قرص برافزایشی و خمیدگی نور را بشناس.</p><span class="tag">BLACK HOLES</span></article>
+<article class="card"><div class="emoji">🪐</div><h3 data-fa="سیاره‌ها" data-en="Planets">سیاره‌ها</h3><p data-fa="از عطارد کوچک تا مشتری غول‌پیکر، همسایه‌های خورشید را بررسی کن." data-en="Explore the Sun's planetary neighbors, from tiny Mercury to giant Jupiter.">از عطارد کوچک تا مشتری غول‌پیکر، همسایه‌های خورشید را بررسی کن.</p><span class="tag">SOLAR SYSTEM</span></article>
+<article class="card"><div class="emoji">⚛️</div><h3 data-fa="فیزیک جهان" data-en="Physics of the universe">فیزیک جهان</h3><p data-fa="با نسبیت، گرانش، فیزیک کوانتومی و رازهای ماده تاریک آشنا شو." data-en="Learn about relativity, gravity, quantum physics, and dark matter.">با نسبیت، گرانش، فیزیک کوانتومی و رازهای ماده تاریک آشنا شو.</p><span class="tag">PHYSICS</span></article>
+</div></div></section>
+
+<section class="band" id="blackholes"><div class="wrap feature-grid">
+<div><div class="eyebrow" data-fa="آزمایشگاه تعاملی ۰۱" data-en="INTERACTIVE LAB 01">آزمایشگاه تعاملی ۰۱</div><h2 data-fa="سیاه‌چاله را کاوش کن" data-en="Explore a black hole">سیاه‌چاله را کاوش کن</h2>
+<p data-fa="اندازه نمایشی سیاه‌چاله را تغییر بده و ببین حلقه نورانی اطراف آن چگونه بزرگ می‌شود. این تصویر یک شبیه‌سازی آموزشی و هنری است، نه مدل دقیق فیزیکی." data-en="Change the illustrative size of the black hole and watch its glowing ring grow. This is an educational visual simulation, not an exact physical model.">اندازه نمایشی سیاه‌چاله را تغییر بده و ببین حلقه نورانی اطراف آن چگونه بزرگ می‌شود. این تصویر یک شبیه‌سازی آموزشی و هنری است، نه مدل دقیق فیزیکی.</p>
+<div class="fact" data-fa="دانستنی: افق رویداد مرزی است که پس از عبور از آن، هیچ پیام یا نوری نمی‌تواند به بیرون برسد. قرص برافزایشی از گاز و غبار داغ اطراف سیاه‌چاله تشکیل می‌شود." data-en="FACT: The event horizon is the boundary beyond which no signal or light can escape. The accretion disk is made of hot gas and dust around the black hole.">دانستنی: افق رویداد مرزی است که پس از عبور از آن، هیچ پیام یا نوری نمی‌تواند به بیرون برسد. قرص برافزایشی از گاز و غبار داغ اطراف سیاه‌چاله تشکیل می‌شود.</div>
+<div class="controls-row"><label for="bhSize" data-fa="اندازه نمایشی:" data-en="Visual size:">اندازه نمایشی:</label><input id="bhSize" type="range" min="65" max="145" value="94"><strong id="bhValue">۱۰۰٪</strong></div>
+</div>
+<div class="interactive"><div class="blackhole-stage"><div class="bh-ring" id="bhRing"></div><div class="bh-core" id="bhCore"></div><div class="bh-caption" data-fa="نمای هنری سیاه‌چاله" data-en="Artistic black hole view">نمای هنری سیاه‌چاله</div></div><p class="readout" id="bhReadout" data-fa="اندازه را تغییر بده تا ظاهر سیاه‌چاله را ببینی." data-en="Move the slider to change the black hole's appearance.">اندازه را تغییر بده تا ظاهر سیاه‌چاله را ببینی.</p></div>
+</div></section>
+
+<section id="solar"><div class="wrap"><div class="section-head"><h2 data-fa="شبیه‌ساز منظومه شمسی" data-en="Solar System Explorer">شبیه‌ساز منظومه شمسی</h2><p data-fa="روی نام هر سیاره بزن تا اطلاعات آن را ببینی. جای سیاره‌ها شماتیک است و مقیاس واقعی فاصله‌ها نیست." data-en="Select a planet to see its facts. Positions are schematic and distances are not to scale.">روی نام هر سیاره بزن تا اطلاعات آن را ببینی. جای سیاره‌ها شماتیک است و مقیاس واقعی فاصله‌ها نیست.</p></div>
+<div class="interactive solar-layout"><div class="solar-stage" id="solarStage"><div class="sun" title="Sun"></div>
+<div class="orbit-line" style="--d:90px"></div><div class="orbit-line" style="--d:145px"></div><div class="orbit-line" style="--d:205px"></div><div class="orbit-line" style="--d:270px"></div>
+<div class="planet-dot" data-planet="mercury" style="--x:-42px;--y:-8px;--s:7px;--c:#aaa"></div><div class="planet-dot" data-planet="venus" style="--x:67px;--y:-17px;--s:12px;--c:#d8ae70"></div><div class="planet-dot active" data-planet="earth" style="--x:-100px;--y:28px;--s:13px;--c:#4b9de5"></div><div class="planet-dot" data-planet="mars" style="--x:128px;--y:45px;--s:10px;--c:#c96b4a"></div><div class="planet-dot" data-planet="jupiter" style="--x:-127px;--y:-92px;--s:24px;--c:#d6ad83"></div><div class="planet-dot" data-planet="saturn" style="--x:88px;--y:112px;--s:21px;--c:#e5ce9a"></div><div class="planet-dot" data-planet="uranus" style="--x:20px;--y:-150px;--s:15px;--c:#8dd8dc"></div><div class="planet-dot" data-planet="neptune" style="--x:-155px;--y:55px;--s:15px;--c:#4974d8"></div></div>
+<div><h3 id="planetName">زمین | Earth</h3><p id="planetInfo" class="readout">تنها سیاره شناخته‌شده‌ای که در آن حیات وجود دارد. حدود ۷۱٪ سطح آن با آب پوشیده شده است.</p><div class="planet-list" id="planetList"></div></div>
+</div></div></section>
+
+<section id="gallery" class="band"><div class="wrap"><div class="section-head"><h2 data-fa="گالری شگفتی‌های کیهان" data-en="Cosmic Wonders Gallery">گالری شگفتی‌های کیهان</h2><p data-fa="تصویرهای هنری الهام‌گرفته از اجرام و پدیده‌های فضایی" data-en="Artistic scenes inspired by astronomical objects and phenomena">تصویرهای هنری الهام‌گرفته از اجرام و پدیده‌های فضایی</p></div>
+<div class="gallery"><div class="gallery-item"><strong data-fa="سحابی‌های رنگارنگ" data-en="Colorful nebulae">سحابی‌های رنگارنگ</strong></div><div class="gallery-item"><strong data-fa="سیاه‌چاله" data-en="Black hole">سیاه‌چاله</strong></div><div class="gallery-item"><strong data-fa="کهکشان دوردست" data-en="Distant galaxy">کهکشان دوردست</strong></div><div class="gallery-item"><strong data-fa="سیاره آبی" data-en="Blue planet">سیاره آبی</strong></div><div class="gallery-item"><strong data-fa="ابرنواختر" data-en="Supernova">ابرنواختر</strong></div><div class="gallery-item"><strong data-fa="غول گازی" data-en="Gas giant">غول گازی</strong></div></div>
+<p class="readout" style="margin-top:13px" data-fa="توجه: تصاویر این گالری با CSS ساخته شده‌اند و عکس‌های مستند ناسا نیستند." data-en="Note: These gallery visuals are CSS artwork, not documentary NASA photographs.">توجه: تصاویر این گالری با CSS ساخته شده‌اند و عکس‌های مستند ناسا نیستند.</p>
+</div></section>
+
+<section id="dashboard"><div class="wrap"><div class="section-head"><h2 data-fa="داشبورد اطلاعات کیهان" data-en="Cosmic Data Dashboard">داشبورد اطلاعات کیهان</h2><p data-fa="چند عدد شگفت‌انگیز درباره جهان اطراف ما" data-en="A few fascinating numbers about our universe">چند عدد شگفت‌انگیز درباره جهان اطراف ما</p></div>
+<div class="stats"><div class="stat"><b>≈ 300,000</b><span data-fa="کیلومتر بر ثانیه؛ سرعت نور در خلأ" data-en="km/s — speed of light in vacuum">کیلومتر بر ثانیه؛ سرعت نور در خلأ</span></div><div class="stat"><b>≈ 4.6B</b><span data-fa="سال؛ سن تقریبی منظومه شمسی" data-en="years — approximate age of the Solar System">سال؛ سن تقریبی منظومه شمسی</span></div><div class="stat"><b>8</b><span data-fa="سیاره در منظومه شمسی" data-en="planets in the Solar System">سیاره در منظومه شمسی</span></div><div class="stat"><b>≈ 13.8B</b><span data-fa="سال؛ سن تقریبی جهان قابل مشاهده" data-en="years — estimated age of the observable universe">سال؛ سن تقریبی جهان قابل مشاهده</span></div></div>
+<div class="fact" data-fa="این اعداد تقریبی‌اند. «جهان قابل مشاهده» بخشی از جهان است که از زمان آغاز انبساط کیهان فرصت داشته نورش به ما برسد." data-en="These values are approximate. The observable universe is the region whose light has had time to reach us since the universe began expanding.">این اعداد تقریبی‌اند. «جهان قابل مشاهده» بخشی از جهان است که از زمان آغاز انبساط کیهان فرصت داشته نورش به ما برسد.</div>
+</div></section>
+
+
+
+<section class="band" id="live"><div class="wrap">
+  <div class="section-head">
+    <h2 data-fa="پنجره زنده به جهان" data-en="Live Window to the Universe">پنجره زنده به جهان</h2>
+    <p data-fa="این بخش برای دریافت اطلاعات تازه به اینترنت نیاز دارد." data-en="This section needs an internet connection to retrieve fresh information.">این بخش برای دریافت اطلاعات تازه به اینترنت نیاز دارد.</p>
+  </div>
+  <div class="live-panel">
+    <div class="live-grid">
+      <article class="live-card">
+        <h3 data-fa="🛰️ تصویر نجومی روز ناسا" data-en="🛰️ NASA Astronomy Picture of the Day">🛰️ تصویر نجومی روز ناسا</h3>
+        <div id="apodStatus" class="live-status">در حال دریافت اطلاعات از ناسا…</div>
+        <div id="apodContent"></div>
+        <button class="btn light" id="reloadApod" type="button" data-fa="بارگذاری دوباره" data-en="Reload">بارگذاری دوباره</button>
+      </article>
+      <article class="live-card">
+        <h3 data-fa="🚀 خبرهای تازه فضایی" data-en="🚀 Latest space news">🚀 خبرهای تازه فضایی</h3>
+        <div id="newsStatus" class="live-status">در حال دریافت خبرها…</div>
+        <div id="newsContent"></div>
+        <button class="btn light" id="reloadNews" type="button" data-fa="به‌روزرسانی خبرها" data-en="Refresh news">به‌روزرسانی خبرها</button>
+      </article>
+    </div>
+    <div class="live-card" style="margin-top:16px">
+      <h3 data-fa="🔎 جست‌وجو در دانشنامه آنلاین" data-en="🔎 Search the online encyclopedia">🔎 جست‌وجو در دانشنامه آنلاین</h3>
+      <form class="live-search" id="wikiSearchForm">
+        <input id="wikiSearchInput" type="search" placeholder="مثلاً: سیاه‌چاله یا Black hole" aria-label="Search astronomy topics">
+        <button class="btn" type="submit" data-fa="جست‌وجو" data-en="Search">جست‌وجو</button>
+      </form>
+      <div id="wikiStatus" class="live-status">جست‌وجوی موضوعات علمی با استفاده از دانشنامه ویکی‌پدیا.</div>
+      <div id="wikiResults"></div>
+    </div>
+    <p class="voice-small" data-fa="منابع آنلاین: NASA APOD، Spaceflight News API و Wikipedia. در صورت قطع اینترنت یا محدودیت دسترسی، ممکن است بعضی سرویس‌ها موقتاً پاسخ ندهند. این بخش اطلاعات را از سرویس‌های بیرونی می‌گیرد." data-en="Online sources: NASA APOD, Spaceflight News API, and Wikipedia. Services may temporarily fail due to connectivity or access restrictions. This section retrieves data from external providers.">منابع آنلاین: NASA APOD، Spaceflight News API و Wikipedia. در صورت قطع اینترنت یا محدودیت دسترسی، ممکن است بعضی سرویس‌ها موقتاً پاسخ ندهند. این بخش اطلاعات را از سرویس‌های بیرونی می‌گیرد.</p>
+  </div>
+</div></section>
+
+<section class="band" id="voice"><div class="wrap">
+<div class="section-head"><h2 data-fa="با راهنمایان علمی COSMOS حرف بزن!" data-en="Talk with COSMOS science guides!">با راهنمایان علمی COSMOS حرف بزن!</h2>
+<p data-fa="سؤالت را تایپ کن یا با میکروفون بگو؛ پاسخ را روی صفحه بخوان و با صدا بشنو." data-en="Type your question or say it into the microphone; read the answer or listen to it.">سؤالت را تایپ کن یا با میکروفون بگو؛ پاسخ را روی صفحه بخوان و با صدا بشنو.</p></div>
+<div class="voice-panel">
+<div class="voice-top">
+<div><strong data-fa="انتخاب راهنمای علمی" data-en="Choose your science guide">انتخاب راهنمای علمی</strong><div class="voice-small" data-fa="این شخصیت‌ها خیالی و آموزشی هستند." data-en="These are fictional educational characters.">این شخصیت‌ها خیالی و آموزشی هستند.</div></div>
+<select class="voice-persona" id="scientistChoice" aria-label="Choose a science guide">
+<option value="cosmologist" data-fa="دکتر آوا – راهنمای کیهان‌شناسی" data-en="Dr. Ava – Cosmology guide">دکتر آوا – راهنمای کیهان‌شناسی</option>
+<option value="physicist" data-fa="دکتر آرمان – راهنمای فیزیک" data-en="Dr. Arman – Physics guide">دکتر آرمان – راهنمای فیزیک</option>
+<option value="astronomer" data-fa="دکتر نیما – راهنمای اخترشناسی" data-en="Dr. Nima – Astronomy guide">دکتر نیما – راهنمای اخترشناسی</option>
+</select>
+</div>
+<div class="voice-note" data-fa="شفاف‌سازی: این بخش به دانشمندان واقعی یا هوش مصنوعی آنلاین متصل نیست. پاسخ‌ها از یک مجموعه آموزشی محدود ساخته می‌شوند و صدا را مرورگر گوشی تولید می‌کند. برای گفت‌وگوی هوشمند و آزاد با هوش مصنوعی، باید نسخه آنلاین و سرور امن به سایت اضافه شود." data-en="Transparency: this feature is not connected to real scientists or an online AI. Answers come from a limited educational library, and your browser generates the voice. Open-ended AI conversations would require an online version and a secure server.">شفاف‌سازی: این بخش به دانشمندان واقعی یا هوش مصنوعی آنلاین متصل نیست. پاسخ‌ها از یک مجموعه آموزشی محدود ساخته می‌شوند و صدا را مرورگر گوشی تولید می‌کند. برای گفت‌وگوی هوشمند و آزاد با هوش مصنوعی، باید نسخه آنلاین و سرور امن به سایت اضافه شود.</div>
+<div class="chat-log" id="chatLog" role="log" aria-live="polite">
+<div class="chat-msg bot" data-fa="سلام! من یکی از راهنمایان آموزشی COSMOS هستم. درباره سیاه‌چاله‌ها، سیاره‌ها، ستاره‌ها یا فیزیک سؤال بپرس. می‌توانی سؤال را تایپ کنی یا دکمه میکروفون را بزنی." data-en="Hello! I'm one of the COSMOS educational guides. Ask me about black holes, planets, stars, or physics. You can type a question or press the microphone button.">سلام! من یکی از راهنمایان آموزشی COSMOS هستم. درباره سیاه‌چاله‌ها، سیاره‌ها، ستاره‌ها یا فیزیک سؤال بپرس. می‌توانی سؤال را تایپ کنی یا دکمه میکروفون را بزنی.</div>
+</div>
+<form class="voice-compose" id="voiceForm">
+<input id="voiceInput" type="text" autocomplete="off" placeholder="مثلاً: چرا نور از سیاه‌چاله فرار نمی‌کند؟" aria-label="Your question">
+<button class="btn" type="submit" data-fa="ارسال سؤال" data-en="Send question">ارسال سؤال</button>
+</form>
+<div class="voice-actions">
+<button class="btn" id="micButton" type="button" data-fa="🎙️ صحبت کن" data-en="🎙️ Speak">🎙️ صحبت کن</button>
+<button class="btn light" id="stopVoiceButton" type="button" data-fa="⏹ توقف صدا" data-en="⏹ Stop audio">⏹ توقف صدا</button>
+<button class="btn light" id="clearChatButton" type="button" data-fa="پاک‌کردن گفت‌وگو" data-en="Clear chat">پاک‌کردن گفت‌وگو</button>
+</div>
+<div class="voice-status" id="voiceStatus" data-fa="برای شروع، روی «صحبت کن» بزن و اجازه استفاده از میکروفون را بده." data-en="Press “Speak” and allow microphone access to get started.">برای شروع، روی «صحبت کن» بزن و اجازه استفاده از میکروفون را بده.</div>
+</div></div></section>
+
+<section><div class="wrap"><div class="section-head"><h2 data-fa="مفاهیم مهم فیزیک" data-en="Key physics concepts">مفاهیم مهم فیزیک</h2><p data-fa="توضیح کوتاه؛ برای کنجکاوی بیشتر هر موضوع را دنبال کن." data-en="Short introductions to inspire deeper exploration.">توضیح کوتاه؛ برای کنجکاوی بیشتر هر موضوع را دنبال کن.</p></div>
+<div class="grid"><article class="card"><div class="emoji">⏳</div><h3 data-fa="نسبیت عام" data-en="General Relativity">نسبیت عام</h3><p data-fa="جرم و انرژی هندسه فضا-زمان را تغییر می‌دهند؛ حرکت اجرام و نور تحت تأثیر این هندسه قرار می‌گیرد." data-en="Mass and energy change spacetime geometry, influencing how objects and light move.">جرم و انرژی هندسه فضا-زمان را تغییر می‌دهند؛ حرکت اجرام و نور تحت تأثیر این هندسه قرار می‌گیرد.</p></article>
+<article class="card"><div class="emoji">⚛️</div><h3 data-fa="فیزیک کوانتومی" data-en="Quantum Physics">فیزیک کوانتومی</h3><p data-fa="رفتار ماده و نور را در مقیاس اتم‌ها و ذرات بسیار کوچک توصیف می‌کند." data-en="It describes matter and light at the scale of atoms and tiny particles.">رفتار ماده و نور را در مقیاس اتم‌ها و ذرات بسیار کوچک توصیف می‌کند.</p></article>
+<article class="card"><div class="emoji">🌑</div><h3 data-fa="ماده تاریک" data-en="Dark Matter">ماده تاریک</h3><p data-fa="مستقیماً نور معمولی را آشکار نمی‌کند، اما اثر گرانشی آن بر حرکت کهکشان‌ها دیده می‌شود." data-en="It does not shine like ordinary matter, but its gravitational influence can be seen in galaxy motions.">مستقیماً نور معمولی را آشکار نمی‌کند، اما اثر گرانشی آن بر حرکت کهکشان‌ها دیده می‌شود.</p></article></div>
+</div></section>
+
+<section class="band"><div class="wrap"><div class="section-head"><h2 data-fa="پرسش‌های کیهانی" data-en="Cosmic Questions">پرسش‌های کیهانی</h2></div>
+<details><summary data-fa="آیا سیاه‌چاله همه‌چیز را می‌بلعد؟" data-en="Do black holes swallow everything?">آیا سیاه‌چاله همه‌چیز را می‌بلعد؟</summary><p data-fa="نه. از فاصله دور، گرانش سیاه‌چاله مانند گرانش هر جرم دیگری با همان جرم است. فقط اگر چیزی بیش از حد به آن نزدیک شود، ممکن است از افق رویداد عبور کند." data-en="No. From far away, a black hole's gravity behaves like that of any object with the same mass. An object must get very close to cross its event horizon.">نه. از فاصله دور، گرانش سیاه‌چاله مانند گرانش هر جرم دیگری با همان جرم است. فقط اگر چیزی بیش از حد به آن نزدیک شود، ممکن است از افق رویداد عبور کند.</p></details>
+<details><summary data-fa="آیا تکینگی حتماً وجود دارد؟" data-en="Does a singularity definitely exist?">آیا تکینگی حتماً وجود دارد؟</summary><p data-fa="نسبیت عام کلاسیک در مرکز سیاه‌چاله به پیش‌بینی تکینگی می‌رسد؛ اما بسیاری از فیزیک‌دانان انتظار دارند نظریه کامل‌تری از گرانش کوانتومی تصویر دقیق‌تری ارائه دهد. هنوز پاسخ قطعی نداریم." data-en="Classical general relativity predicts a singularity, but many physicists expect a fuller theory of quantum gravity to provide a more accurate picture. We do not yet know for certain.">نسبیت عام کلاسیک در مرکز سیاه‌چاله به پیش‌بینی تکینگی می‌رسد؛ اما بسیاری از فیزیک‌دانان انتظار دارند نظریه کامل‌تری از گرانش کوانتومی تصویر دقیق‌تری ارائه دهد. هنوز پاسخ قطعی نداریم.</p></details>
+<details><summary data-fa="چرا نور نمی‌تواند از سیاه‌چاله فرار کند؟" data-en="Why can't light escape a black hole?">چرا نور نمی‌تواند از سیاه‌چاله فرار کند؟</summary><p data-fa="درون افق رویداد، ساختار فضا-زمان طوری است که همه مسیرهای آینده‌رو به سمت درون می‌روند؛ حتی مسیر نور هم راهی به بیرون ندارد." data-en="Inside the event horizon, spacetime is structured so that all future-directed paths lead inward. Even light has no path back out.">درون افق رویداد، ساختار فضا-زمان طوری است که همه مسیرهای آینده‌رو به سمت درون می‌روند؛ حتی مسیر نور هم راهی به بیرون ندارد.</p></details>
+</div></section>
+
+
+<!-- COSMOS ULTIMATE: comprehensive astrophysics and quantum encyclopedia -->
+<section class="cosmos-deep" id="astrophysics">
+ <div class="wrap">
+  <div class="section-head">
+   <div class="cosmos-kicker">COSMOS KNOWLEDGE ATLAS • 01</div>
+   <h2>دانشنامهٔ جامع اخترفیزیک</h2>
+   <p>از تولد ستاره‌ها تا ساختار بزرگ‌مقیاس کیهان؛ فیزیک، مشاهده و رازهایی که هنوز حل نشده‌اند.</p>
+  </div>
+  <p class="cosmos-lead">اخترفیزیک شاخه‌ای از علم است که با کمک قوانین فیزیک می‌پرسد اجرام آسمانی چگونه به وجود می‌آیند، چرا می‌درخشند، چگونه حرکت می‌کنند و سرانجام چه بر سرشان می‌آید. اخترفیزیک فقط تماشای آسمان نیست؛ از نور و طیف‌سنجی تا نسبیت عام، فیزیک هسته‌ای، ذرات بنیادی و رایانه برای فهم جهان استفاده می‌کند.</p>
+  <div class="cosmos-toc">
+   <a href="#astro-stars">ستاره‌ها</a><a href="#astro-remnants">بقایای ستاره‌ای</a><a href="#astro-galaxies">کهکشان‌ها</a><a href="#astro-cosmos">کیهان‌شناسی</a><a href="#astro-extreme">پدیده‌های پرانرژی</a><a href="#astro-observe">روش‌های رصد</a><a href="#astro-frontier">مرزهای دانش</a>
+  </div>
+  <div class="cosmos-grid">
+   <article class="cosmos-card"><div class="emoji">⭐</div><h3>ستاره‌شناسی و اخترفیزیک</h3><p>رصد می‌گوید چه نوری به ما رسیده؛ فیزیک کمک می‌کند از روی آن دما، ترکیب، جرم، فاصله و تحول جرم آسمانی را استنباط کنیم.</p><span class="cosmos-chip">OBSERVATION</span></article>
+   <article class="cosmos-card"><div class="emoji">🌌</div><h3>کیهان‌شناسی</h3><p>مطالعهٔ کل جهان در مقیاس بزرگ: تاریخ انبساط، تابش زمینهٔ کیهانی، مادهٔ تاریک، انرژی تاریک و شکل‌گیری ساختارها.</p><span class="cosmos-chip">COSMOLOGY</span></article>
+   <article class="cosmos-card"><div class="emoji">🕳️</div><h3>اخترفیزیک گرانشی</h3><p>بررسی ستاره‌های نوترونی، سیاه‌چاله‌ها، عدسی گرانشی، امواج گرانشی و میدان‌های گرانشی بسیار قوی.</p><span class="cosmos-chip">GRAVITY</span></article>
+  </div>
+
+  <h3 id="astro-stars" style="margin-top:34px">۱) ستاره‌ها؛ کارخانه‌های کیهانی عناصر</h3>
+  <details open><summary>ستاره چیست و چرا می‌درخشد؟</summary>
+   <p>ستاره کره‌ای بسیار داغ از پلاسماست که گرانش آن را کنار هم نگه می‌دارد. در بخش مرکزی ستاره، دما و فشار می‌تواند آن‌قدر زیاد باشد که همجوشی هسته‌ای رخ دهد. در ستاره‌هایی مانند خورشید، هسته‌های هیدروژن در زنجیره‌ای از واکنش‌ها به هلیوم تبدیل می‌شوند. بخشی از جرم سکون واکنش‌دهنده‌ها به انرژی تبدیل می‌شود؛ رابطهٔ معروف این موضوع <b>E = mc²</b> است.</p>
+   <p>ستاره تقریباً در تعادل میان دو اثر است: گرانش تمایل دارد ماده را به درون بکشد؛ فشار گاز و فشار ناشی از انرژی تولیدشده درون ستاره در برابر آن مقاومت می‌کند. به این وضعیت تعادل هیدروستاتیکی می‌گویند. اگر سوخت هسته‌ای و ساختار درونی تغییر کند، تعادل نیز دگرگون می‌شود.</p>
+  </details>
+  <details><summary>چرخهٔ زندگی ستاره‌ها از ابر گازی تا پایان</summary>
+   <ul>
+    <li><b>ابر مولکولی:</b> ناحیه‌ای سرد و متراکم از گاز و غبار میان‌ستاره‌ای است. بخش‌هایی از آن می‌توانند زیر اثر گرانش فشرده شوند.</li>
+    <li><b>پیش‌ستاره:</b> با فروریزش ابر، مرکز آن گرم‌تر و چگال‌تر می‌شود. هنوز ستارهٔ رشتهٔ اصلی نشده، اما ماده به سوی آن می‌ریزد.</li>
+    <li><b>رشتهٔ اصلی:</b> مرحلهٔ طولانی زندگی ستاره است؛ در آن هیدروژن در هسته همجوشی می‌کند. خورشید اکنون در این مرحله قرار دارد.</li>
+    <li><b>غول یا ابرغول:</b> پس از کاهش هیدروژن مرکزی، ساختار ستاره تغییر می‌کند و لایه‌های بیرونی می‌توانند منبسط شوند. مسیر دقیق به جرم و ترکیب ستاره وابسته است.</li>
+    <li><b>پایان ستارهٔ کم‌جرم یا میان‌جرم:</b> لایه‌های بیرونی ممکن است به فضا پس زده شوند و یک کوتولهٔ سفید باقی بماند.</li>
+    <li><b>پایان ستارهٔ پرجرم:</b> ممکن است هسته فروبپاشد و انفجار ابرنواختری رخ دهد؛ باقیمانده می‌تواند ستارهٔ نوترونی یا، در شرایط مناسب، سیاه‌چاله باشد.</li>
+   </ul>
+   <p>این مسیرها نقشه‌ای کلی‌اند، نه برنامه‌ای یکسان برای همهٔ ستاره‌ها. جرم اولیه، فلزینگی، چرخش و وجود همدم در یک سامانهٔ دوتایی می‌توانند سرنوشت ستاره را تغییر دهند.</p>
+  </details>
+  <details><summary>چطور ستاره‌ها عناصر شیمیایی را می‌سازند؟</summary>
+   <p>همجوشی درون ستاره‌ها هسته‌های سبک‌تر را به هسته‌های سنگین‌تر تبدیل می‌کند. در بخش‌هایی از عمر ستاره‌های پرجرم، واکنش‌ها می‌توانند تا عناصر گروه آهن پیش بروند؛ اما ساخت بسیاری از عناصر سنگین‌تر به فرایندهای جذب نوترون و رویدادهای پرانرژی مانند برخی ابرنواخترها و ادغام ستاره‌های نوترونی وابسته است. پس جملهٔ «همهٔ عناصر در قلب ستاره‌ها ساخته شده‌اند» دقیق نیست؛ تاریخچهٔ عناصر پیچیده‌تر است.</p>
+  </details>
+
+  <h3 id="astro-remnants" style="margin-top:30px">۲) اجرام فشرده و مرگ ستاره‌ای</h3>
+  <details><summary>کوتولهٔ سفید؛ باقی‌ماندهٔ فشردهٔ یک ستاره</summary>
+   <p>کوتولهٔ سفید هستهٔ داغ و بسیار فشردهٔ ستاره‌ای است که لایه‌های بیرونی‌اش را از دست داده است. دیگر همجوشی پایدار مانند مرحلهٔ رشتهٔ اصلی در آن انرژی تولید نمی‌کند؛ بلکه به‌آرامی سرد می‌شود. پایداری آن به فشار تباهیدگی الکترون‌ها مربوط است؛ این فشار از اصل طرد پائولی و آمار کوانتومی فرمیون‌ها ریشه می‌گیرد. برای کوتولهٔ سفید غیرچرخان و معمولی، حد چاندرِسِخار حدود ۱٫۴ جرم خورشید است؛ نزدیک شدن به این حد می‌تواند به ناپایداری بینجامد.</p>
+  </details>
+  <details><summary>ستارهٔ نوترونی، تپ‌اختر و مگنتار</summary>
+   <p>در فروپاشی هستهٔ یک ستارهٔ پرجرم، ماده می‌تواند تا چگالی‌هایی بسیار فراتر از مادهٔ اتمی معمولی فشرده شود. در ستارهٔ نوترونی، فشار کوانتومی و نیروهای هسته‌ای در پایداری نقش دارند. جرم آن می‌تواند بیش از جرم خورشید باشد، در حالی که اندازه‌اش در حد ده‌ها کیلومتر است.</p>
+   <p><b>تپ‌اختر (پالسار):</b> ستارهٔ نوترونی چرخانی است که پرتوهای تابشی آن مانند چراغ دریایی از مقابل دید ما عبور می‌کنند؛ بنابراین تپ‌های منظم دریافت می‌کنیم. <b>مگنتار:</b> گونه‌ای ستارهٔ نوترونی با میدان مغناطیسی فوق‌العاده نیرومند است. همهٔ ستاره‌های نوترونی تپ‌اختر دیده نمی‌شوند و همهٔ آن‌ها مگنتار نیستند.</p>
+  </details>
+  <details><summary>ابرنواخترها و بقایای آن‌ها</summary>
+   <p>ابرنواختر نام خانواده‌ای از انفجارهای بسیار پرانرژی ستاره‌ای است. برخی از نوع Ia از انفجار گرماهسته‌ای کوتولهٔ سفید در یک سامانهٔ دوتایی پدید می‌آیند؛ برخی دیگر از فروپاشی هستهٔ ستارهٔ پرجرم. باقی‌ماندهٔ ابرنواختر می‌تواند پوسته‌های در حال گسترش گاز، عناصر تازه‌ساخته‌شده و یک ستارهٔ نوترونی یا سیاه‌چاله داشته باشد. این انفجارها در غنی‌کردن محیط میان‌ستاره‌ای از عناصر نقش مهمی دارند.</p>
+  </details>
+  <details><summary>سیاه‌چاله‌ها؛ افق رویداد، چرخش و تابش هاوکینگ</summary>
+   <p>سیاه‌چاله ناحیه‌ای از فضا-زمان است که درون مرزی به نام افق رویداد، هیچ مسیر آینده‌رویی به بیرون نمی‌رسد. افق رویداد یک سطح مادی نیست؛ مرز علّی است. برای سیاه‌چالهٔ سادهٔ بدون چرخش و بدون بار، شعاع شوارتزشیلد چنین است:</p>
+   <div class="cosmos-equation">rₛ = 2GM / c²</div>
+   <p>در این رابطه G ثابت گرانش، M جرم و c سرعت نور در خلأ است. این فرمول برای مدل شوارتزشیلد است؛ سیاه‌چاله‌های واقعی می‌توانند بچرخند و توصیف دقیق‌ترشان به هندسهٔ کر نیاز دارد. سیاه‌چاله‌ها از نظر جرم در رده‌های ستاره‌ای، میان‌جرم و کلان‌جرم بررسی می‌شوند؛ سیاه‌چاله‌های کلان‌جرم در مرکز بسیاری از کهکشان‌ها حضور دارند.</p>
+   <p>گاز اطراف سیاه‌چاله ممکن است در قرص برافزایشی داغ شود و تابش شدیدی، گاهی پرتو ایکس، تولید کند. جت‌های نسبیتی نیز در بعضی سامانه‌ها دیده می‌شوند؛ مواد این جت‌ها لزوماً از درون افق رویداد بیرون نیامده‌اند، بلکه از محیط و میدان‌های مغناطیسی پیرامون سامانه شتاب می‌گیرند.</p>
+   <p><b>تابش هاوکینگ:</b> نظریهٔ میدان کوانتومی در فضای خمیده پیش‌بینی می‌کند سیاه‌چاله‌ها تابشی بسیار ضعیف دارند و می‌توانند در زمان بسیار طولانی جرم از دست بدهند. برای سیاه‌چاله‌های اخترفیزیکی، این اثر به‌طور مستقیم مشاهده نشده است. ارتباط این موضوع با اطلاعات کوانتومی، پارادوکس اطلاعات سیاه‌چاله را به یکی از مسئله‌های عمیق فیزیک تبدیل کرده است.</p>
+   <div class="cosmos-note open">مرز دانش: نسبیت عام کلاسیک به تکینگی‌هایی در برخی راه‌حل‌ها می‌رسد؛ این می‌تواند نشانهٔ محدودیت نظریه در شرایط افراطی باشد. هنوز نظریهٔ تجربیِ کامل و پذیرفته‌شده‌ای از گرانش کوانتومی نداریم که ماهیت مرکز سیاه‌چاله را قطعی توضیح دهد.</div>
+  </details>
+
+  <h3 id="astro-galaxies" style="margin-top:30px">۳) کهکشان‌ها، سحابی‌ها و محیط میان‌ستاره‌ای</h3>
+  <details><summary>کهکشان چیست و چه گونه‌هایی دارد؟</summary>
+   <p>کهکشان سامانه‌ای گرانشی از ستاره‌ها، گاز، غبار، بقایای ستاره‌ای و مادهٔ تاریک است. شکل‌های رایج شامل مارپیچی، بیضوی و نامنظم‌اند. راه شیری کهکشان مارپیچیِ میله‌ای ماست و خورشید در یکی از بازوهای آن قرار دارد. کهکشان‌ها می‌توانند با هم برهم‌کنش کنند، دگرشکل شوند و در گذر زمان ادغام شوند.</p>
+   <p>در مرکز بسیاری از کهکشان‌ها سیاه‌چالهٔ کلان‌جرم وجود دارد. اگر ماده با نرخ زیادی به سوی آن فروبریزد، هستهٔ کهکشان فعال می‌شود. اختروش‌ها (کوازارها) نمونه‌هایی بسیار درخشان از هسته‌های فعال کهکشانی‌اند؛ منبع انرژی اصلی آن‌ها مادهٔ داغ در حال برافزایش است، نه خودِ سیاه‌چاله به‌تنهایی.</p>
+  </details>
+  <details><summary>سحابی و محیط میان‌ستاره‌ای</summary>
+   <p>فضای میان ستاره‌ها کاملاً خالی نیست؛ گاز، غبار، میدان مغناطیسی، پرتوهای کیهانی و ذرات پرانرژی در آن حضور دارند. سحابی‌ها ابرهای گازی و غباری‌اند. برخی نواحی با تابش ستاره‌های داغ می‌درخشند، برخی نور پس‌زمینه را می‌پوشانند و برخی محل تولد ستاره‌ها هستند. موج ضربه‌ای ابرنواختر می‌تواند گاز پیرامون را فشرده و بر شکل‌گیری ستاره‌های تازه اثر بگذارد.</p>
+  </details>
+  <details><summary>سیاره‌های فراخورشیدی و جست‌وجوی جهان‌های دیگر</summary>
+   <p>سیارهٔ فراخورشیدی به سیاره‌ای گفته می‌شود که به دور ستاره‌ای غیر از خورشید می‌گردد. روش گذر، کاهش بسیار کوچک نور ستاره هنگام عبور سیاره از جلوی آن را اندازه می‌گیرد. روش سرعت شعاعی، تکان رفت‌وبرگشتی ستاره را بر اثر گرانش سیاره ثبت می‌کند. تصویربرداری مستقیم و ریزهم‌گرایی گرانشی نیز روش‌های دیگرند.</p>
+   <p>«ناحیهٔ زیست‌پذیر» محدوده‌ای از فاصلهٔ ستاره است که در شرایط مناسب، آب مایع می‌تواند روی سطح سیاره وجود داشته باشد؛ اما قرار گرفتن در این ناحیه به‌تنهایی به معنی وجود حیات نیست. جو، میدان مغناطیسی، زمین‌شناسی، ستارهٔ میزبان و تاریخچهٔ سیاره هم اهمیت دارند. نشانهٔ احتمالی زیستی در جو باید با احتیاط بررسی شود، چون فرایندهای غیرزیستی هم می‌توانند بعضی گازها را بسازند.</p>
+  </details>
+
+  <h3 id="astro-cosmos" style="margin-top:30px">۴) کیهان‌شناسی؛ تاریخ و ساختار جهان</h3>
+  <details><summary>مدل مهبانگ دقیقاً چه می‌گوید؟</summary>
+   <p>مدل مهبانگ می‌گوید جهان قابل مشاهده در گذشتهٔ دور بسیار داغ‌تر و چگال‌تر بوده و از آن زمان فضا در حال انبساط است. برآورد پذیرفته‌شدهٔ سن جهان حدود ۱۳٫۸ میلیارد سال است. مهبانگ را نباید انفجاری از یک نقطه درون فضای خالیِ از پیش موجود تصور کرد؛ در مدل استاندارد کیهان‌شناسی، خودِ فاصله‌های فضایی در حال گسترش‌اند.</p>
+   <p>در دقایق نخست، شرایط برای ساخته‌شدن بیشتر هسته‌های سبک، مانند هیدروژن و هلیوم و مقدار اندکی لیتیوم، فراهم شد. حدود ۳۸۰ هزار سال بعد، جهان آن‌قدر سرد شد که الکترون‌ها به هسته‌ها پیوستند و اتم‌های خنثی شکل گرفتند؛ نور توانست آزادانه حرکت کند. همان نور که امروز کش آمده و سرد شده، تابش زمینهٔ کیهانی یا CMB نام دارد و اکنون دمای آن حدود ۲٫۷ کلوین است.</p>
+  </details>
+  <details><summary>انبساط جهان، انتقال به سرخ و قانون هابل–لومتر</summary>
+   <p>در مقیاس‌های کیهانی، نور کهکشان‌های دوردست معمولاً به‌علت انبساط فضا به طول موج‌های بلندتر کشیده می‌شود؛ به این پدیده انتقال به سرخ کیهان‌شناختی می‌گویند. در تقریب فاصله‌های نه‌چندان بزرگ، سرعت دورشدن کهکشان‌ها با فاصلهٔ آن‌ها متناسب است: v ≈ H₀d. ثابت هابل H₀ نرخ کنونی انبساط را توصیف می‌کند؛ اندازه‌گیری‌های آن با روش‌های مختلف هنوز اختلافی دارند که به «تنش هابل» معروف است.</p>
+   <p>این رابطه به معنی آن نیست که کهکشان‌ها الزاماً از مرکز مشترکی در فضا دور می‌شوند. در مدل همگن و همسانگرد، انبساط در همه‌جا رخ می‌دهد و در مقیاس‌های محلی، گرانش می‌تواند سامانه‌هایی مانند منظومه شمسی و کهکشان را به هم پیوسته نگه دارد.</p>
+  </details>
+  <details><summary>مادهٔ تاریک و انرژی تاریک؛ دو راز متفاوت</summary>
+   <p><b>مادهٔ تاریک</b> نام ماده‌ای است که نور را به شیوهٔ مادهٔ معمولی گسیل یا جذب نمی‌کند، اما اثر گرانشی آن در چرخش کهکشان‌ها، عدسی گرانشی و رشد ساختارهای کیهانی دیده می‌شود. هنوز نمی‌دانیم ذره یا ماهیت دقیق آن چیست.</p>
+   <p><b>انرژی تاریک</b> نامی برای مؤلفه‌ای است که در مدل استاندارد کیهان‌شناسی با شتاب‌گرفتن انبساط جهان مرتبط است. ساده‌ترین مدل آن، ثابت کیهان‌شناختی است؛ اما ماهیت فیزیکی آن هنوز روشن نیست. مادهٔ تاریک و انرژی تاریک یک چیز نیستند: اولی مانند ماده در خوشه‌بندی گرانشی نقش دارد، دومی با تاریخچهٔ انبساط کیهان مرتبط است.</p>
+  </details>
+  <details><summary>تورم کیهانی، شبکهٔ کیهانی و افق جهان قابل مشاهده</summary>
+   <p>تورم کیهانی فرضیه‌ای است که دوره‌ای از انبساط بسیار سریع در جهان بسیار آغازین را پیشنهاد می‌کند و می‌تواند برخی ویژگی‌های بزرگ‌مقیاس جهان را توضیح دهد. بسیاری از پیش‌بینی‌های آن با داده‌ها سازگارند، اما سازوکار بنیادی و میدان عامل آن هنوز معلوم نیست و آزمون‌های بیشتری لازم است.</p>
+   <p>در مقیاس بزرگ، کهکشان‌ها به شکل شبکه‌ای از رشته‌ها، گره‌ها و حفره‌های کیهانی توزیع شده‌اند. مادهٔ تاریک در شکل‌گیری این ساختار نقش مهمی دارد. جهان قابل مشاهده فقط بخشی است که نور یا پیام آن از آغاز تاریخ کیهان فرصت رسیدن به ما را داشته است؛ اندازهٔ کل جهان ممکن است بسیار بزرگ‌تر باشد و دربارهٔ متناهی یا نامتناهی بودن کل آن پاسخ قطعی نداریم.</p>
+  </details>
+
+  <h3 id="astro-extreme" style="margin-top:30px">۵) پدیده‌های پرانرژی و پیام‌رسان‌های کیهانی</h3>
+  <details><summary>امواج گرانشی؛ لرزش‌های فضا-زمان</summary>
+   <p>نسبیت عام پیش‌بینی می‌کند شتاب‌گرفتن نامتقارن جرم‌های بزرگ می‌تواند موج‌هایی در هندسهٔ فضا-زمان ایجاد کند. ادغام دو سیاه‌چاله یا دو ستارهٔ نوترونی از منابع مهم آن‌هاست. آشکارسازهای لیزری بسیار حساس، تغییر بسیار کوچکی در فاصلهٔ بازوهای خود اندازه می‌گیرند. امواج گرانشی راهی مستقل از نور برای مطالعهٔ رویدادهای دوردست فراهم کرده‌اند.</p>
+  </details>
+  <details><summary>عدسی گرانشی و حلقهٔ اینشتین</summary>
+   <p>جرم و انرژی مسیر نور را در فضا-زمان خمیده تغییر می‌دهند. اگر یک جرم پرجرم میان ما و جسم دوردست قرار گیرد، می‌تواند تصویر آن را جابه‌جا، چندگانه یا بزرگ‌نمایی کند. در هم‌راستایی مناسب، حلقهٔ اینشتین شکل می‌گیرد. عدسی گرانشی ابزاری برای مطالعهٔ مادهٔ تاریک، کهکشان‌های دور و حتی کشف برخی سیاره‌هاست.</p>
+  </details>
+  <details><summary>پرتوهای کیهانی، فوران‌های گاما و نوترینوها</summary>
+   <p>پرتوهای کیهانی ذرات پرانرژی‌اند که از فضا به زمین می‌رسند؛ برخی از خورشید، برخی از بقایای ابرنواختر و برخی از منابع پرانرژی‌تر می‌آیند. فوران‌های پرتو گاما از انفجاری‌ترین رویدادهای شناخته‌شده‌اند و می‌توانند با فروپاشی برخی ستاره‌های پرجرم یا ادغام اجرام فشرده همراه باشند. نوترینوها ذراتی بسیار کم‌برهم‌کنش‌اند؛ چون به‌سختی با ماده برخورد می‌کنند، می‌توانند اطلاعاتی از درون منابع پرانرژی به ما برسانند.</p>
+  </details>
+
+  <h3 id="astro-observe" style="margin-top:30px">۶) چگونه جهان را رصد می‌کنیم؟</h3>
+  <table class="cosmos-table"><thead><tr><th>پنجرهٔ رصد</th><th>چه چیزی را بهتر آشکار می‌کند؟</th><th>نمونهٔ کاربرد</th></tr></thead><tbody>
+   <tr><td>رادیویی</td><td>گاز سرد، پالسارها، جت‌ها و تابش سنکروترونی</td><td>نقشه‌برداری از ابرهای گازی و تپ‌اخترها</td></tr>
+   <tr><td>فروسرخ</td><td>اجرام سردتر و نور عبوری از غبار</td><td>ستاره‌های در حال تولد و کهکشان‌های دور</td></tr>
+   <tr><td>مرئی و فرابنفش</td><td>نور ستاره‌ها، سحابی‌ها و گازهای داغ</td><td>طیف‌سنجی و سنجش ترکیب شیمیایی</td></tr>
+   <tr><td>پرتو ایکس</td><td>گاز بسیار داغ و محیط‌های پرانرژی</td><td>قرص‌های برافزایشی و بقایای ابرنواختر</td></tr>
+   <tr><td>پرتو گاما</td><td>فرایندهای بسیار پرانرژی</td><td>فوران‌های گاما و تابش منابع پرانرژی</td></tr>
+   <tr><td>امواج گرانشی</td><td>شتاب‌گیری جرم‌های عظیم در سامانه‌های فشرده</td><td>ادغام سیاه‌چاله‌ها و ستاره‌های نوترونی</td></tr>
+  </tbody></table>
+  <p>طیف‌سنجی یکی از ابزارهای قدرتمند اخترفیزیک است: هر عنصر در شرایط مشخص خطوط جذبی و گسیلی ویژه‌ای دارد. با شکافتن نور به طول موج‌های مختلف می‌توان ترکیب شیمیایی، دما، سرعت شعاعی و برخی ویژگی‌های فیزیکی منبع را بررسی کرد.</p>
+  <h3 id="astro-frontier" style="margin-top:30px">۷) پرسش‌هایی که هنوز پاسخ نهایی ندارند</h3>
+  <div class="cosmos-grid">
+   <article class="cosmos-card"><h3>مرکز سیاه‌چاله واقعاً چیست؟</h3><p>برای پاسخ، به نظریه‌ای نیاز داریم که گرانش و کوانتوم را در شرایط افراطی یکپارچه کند.</p></article>
+   <article class="cosmos-card"><h3>مادهٔ تاریک از چه ساخته شده؟</h3><p>اثر گرانشی آن شواهد فراوان دارد، اما ذره یا سازوکار دقیق هنوز شناسایی نشده است.</p></article>
+   <article class="cosmos-card"><h3>چرا انبساط شتاب می‌گیرد؟</h3><p>ثابت کیهان‌شناختی توضیح ساده‌ای است، ولی ماهیت بنیادی انرژی تاریک همچنان پرسش‌برانگیز است.</p></article>
+   <article class="cosmos-card"><h3>آیا تورم رخ داده است؟</h3><p>مدل‌های تورمی بسیاری از داده‌ها را توضیح می‌دهند، اما نشانه‌های مستقیم و قطعیِ سازوکار آن همچنان موضوع پژوهش‌اند.</p></article>
+   <article class="cosmos-card"><h3>آیا در جایی دیگر حیات هست؟</h3><p>هنوز مدرک تأییدشده‌ای از حیات فرازمینی نداریم؛ جست‌وجو با بررسی سیاره‌ها و زیست‌نشانگرها ادامه دارد.</p></article>
+   <article class="cosmos-card"><h3>سرنوشت نهایی جهان چیست؟</h3><p>به ماهیت انرژی تاریک، مقدار ماده و هندسه و تحول آیندهٔ کیهان وابسته است.</p></article>
+  </div>
+  <p class="deep-footer-note">یادآوری علمی: «نمی‌دانیم» شکست علم نیست؛ مشخص‌کردن مرز دانسته‌ها، بخشی از روش علمی است.</p>
+ </div>
+</section>
+
+<section class="cosmos-deep" id="quantum">
+ <div class="wrap">
+  <div class="section-head"><div class="cosmos-kicker">COSMOS KNOWLEDGE ATLAS • 02</div><h2>فیزیک کوانتومی؛ از پایه تا مرزهای پیشرفته</h2><p>توصیف دقیق رفتار طبیعت در مقیاس اتم‌ها، فوتون‌ها و ذرات بنیادی.</p></div>
+  <p class="cosmos-lead">فیزیک کوانتومی نظریه‌ای برای توصیف ماده و نور در مقیاس‌های کوچک است. این نظریه فقط یک ایدهٔ عجیب نیست؛ پایهٔ فهم اتم‌ها، نیمه‌رساناها، لیزرها، طیف اتمی و بسیاری از فناوری‌های امروزی است. پیش‌بینی‌های آن با دقت بسیار زیاد در آزمایش‌ها آزموده شده‌اند، هرچند معنای فلسفی بعضی بخش‌های آن هنوز محل بحث است.</p>
+  <div class="cosmos-toc"><a href="#quantum-basics">پایه‌ها</a><a href="#quantum-wave">موج و ذره</a><a href="#quantum-state">حالت و برهم‌نهی</a><a href="#quantum-rules">قواعد کلیدی</a><a href="#quantum-particles">ذرات و میدان‌ها</a><a href="#quantum-tech">فناوری‌ها</a><a href="#quantum-frontier">پرسش‌های باز</a></div>
+  <div class="cosmos-note">یک نکتهٔ مهم: کوانتوم به معنی «هر چیزی ممکن است» یا «ذهن انسان واقعیت را می‌سازد» نیست. نظریه قواعد ریاضی دقیق دارد و احتمال نتایج آزمایش‌ها را با دقت بالا پیش‌بینی می‌کند.</div>
+  <h3 id="quantum-basics">۱) چرا به فیزیک کوانتومی نیاز داریم؟</h3>
+  <details open><summary>جهان کلاسیک و جهان کوانتومی چه فرقی دارند؟</summary>
+   <p>فیزیک کلاسیک برای بسیاری از حرکت‌های روزمره، توپ‌ها، خودروها و مدار سیاره‌ها تقریب بسیار خوبی است. اما در مقیاس اتمی، پیش‌بینی‌هایی مانند انرژی گسستهٔ اتم، پایداری اتم‌ها، طیف نور و رفتار فوتون‌ها با قوانین کلاسیک به‌تنهایی توضیح داده نمی‌شوند. مکانیک کوانتومی چارچوب دقیق‌تری ارائه می‌کند.</p>
+   <p>کوانتومی بودن به این معنی نیست که هر کمیت همیشه فقط چند مقدار دارد؛ بلکه بعضی کمیت‌ها در سامانه‌های مشخص طیف گسسته دارند و حالت و اندازه‌گیری با قواعد احتمالاتی توصیف می‌شود. برای مثال، الکترونِ مقید در اتم فقط می‌تواند در ترازهای انرژی مجاز قرار گیرد.</p>
+  </details>
+  <details><summary>کوانتیده‌شدن انرژی و ثابت پلانک</summary>
+   <p>در برخی پدیده‌ها، انرژی مبادله‌شده به بسته‌های گسسته یا کوانتوم‌ها ظاهر می‌شود. برای فوتون با بسامد f، انرژی آن برابر است با:</p>
+   <div class="cosmos-equation">E = h f</div>
+   <p>h ثابت پلانک است و مقدار آن دقیقاً ۶٫۶۲۶۰۷۰۱۵ × ۱۰⁻³⁴ ژول‌ثانیه تعریف شده است. هرچه بسامد نور بیشتر باشد، انرژی هر فوتون بیشتر است. این رابطه برای فوتون در خلأ و در چارچوب انرژی آن به کار می‌رود.</p>
+  </details>
+  <h3 id="quantum-wave" style="margin-top:28px">۲) دوگانگی موج و ذره و آزمایش دوشکاف</h3>
+  <details open><summary>آیا نور موج است یا ذره؟</summary>
+   <p>نور در بعضی آزمایش‌ها ویژگی‌های موجی مانند تداخل و پراش نشان می‌دهد و در تبادل انرژی با ماده به صورت فوتون‌های گسسته آشکار می‌شود. ماده نیز مانند الکترون‌ها، طول موج دوبروی دارد: λ = h/p. بنابراین دوگانگی موج و ذره به این معنی نیست که یک ذرهٔ کوچک دقیقاً مثل توپ یا موج آب معمولی است؛ رفتار کوانتومی با تابع حالت توصیف می‌شود.</p>
+   <div class="cosmos-equation">λ = h / p</div>
+  </details>
+  <details><summary>آزمایش دوشکاف؛ چرا نتیجه عجیب است؟</summary>
+   <p>اگر ذرات کوانتومی را یکی‌یکی به سوی دوشکاف بفرستیم، در شرایطی که اطلاعات مسیر در دسترس نباشد، الگوی آماری برخوردها می‌تواند نوارهای تداخلی بسازد؛ الگویی که ویژگی موجی دامنهٔ احتمال را نشان می‌دهد. اگر آزمایش طوری تنظیم شود که مسیر هر ذره قابل تشخیص شود، الگوی تداخل از بین می‌رود یا کاهش می‌یابد. این به معنی آن نیست که آگاهی انسان موج را جادویی تغییر می‌دهد؛ برهم‌کنش فیزیکیِ سامانه با دستگاه و محیط اهمیت دارد.</p>
+  </details>
+  <h3 id="quantum-state" style="margin-top:28px">۳) تابع موج، احتمال و برهم‌نهی</h3>
+  <details open><summary>تابع موج ψ چه چیزی را توصیف می‌کند؟</summary>
+   <p>در مکانیک کوانتومی، حالت یک سامانه با برداری در فضای حالت یا با تابع موج ψ توصیف می‌شود. تابع موج به‌خودی‌خود احتمال مستقیم نیست؛ طبق قاعدهٔ بورن، مربع قدرمطلق آن |ψ|² چگالی احتمالِ یافتن ذره در مکان مشخص را می‌دهد. برای پیش‌بینی احتمال‌ها باید حالت نرمال‌سازی شود تا مجموع احتمال نتایج ممکن برابر یک باشد.</p>
+  </details>
+  <details><summary>برهم‌نهی کوانتومی چیست؟</summary>
+   <p>اگر یک سامانه بتواند در دو حالت پایهٔ |0⟩ و |1⟩ قرار گیرد، حالت کلی می‌تواند ترکیبی خطی از آن‌ها باشد:</p>
+   <div class="cosmos-equation">|ψ⟩ = α|0⟩ + β|1⟩ &nbsp; با &nbsp; |α|² + |β|² = 1</div>
+   <p>α و β دامنه‌های احتمال‌اند. پیش از اندازه‌گیری، حالت لزوماً یکی از دو حالت کلاسیکیِ مشخص نیست؛ اما هنگام اندازه‌گیریِ همان کمیت، یکی از نتایج مجاز با احتمال‌های تعیین‌شده به دست می‌آید. تشبیه معروف «گربهٔ شرودینگر» آزمایش فکری‌ای برای نشان‌دادن دشواری تعمیم قواعد کوانتومی به جهان روزمره بود، نه توصیفی از گربه‌های واقعی.</p>
+  </details>
+  <h3 id="quantum-rules" style="margin-top:28px">۴) قواعد کلیدی مکانیک کوانتومی</h3>
+  <details open><summary>اصل عدم قطعیت هایزنبرگ</summary>
+   <p>برای مکان و تکانه، حدی بنیادی برای کوچک‌کردن هم‌زمان پراکندگی‌های حالت وجود دارد:</p>
+   <div class="cosmos-equation">Δx · Δp ≥ ħ / 2</div>
+   <p>Δx و Δp انحراف معیارِ اندازه‌گیری مکان و تکانه در مجموعه‌ای از حالت‌های یکسان‌اند و ħ برابر h تقسیم بر ۲π است. این اصل فقط ضعف ابزار اندازه‌گیری یا لرزش دستگاه نیست؛ از ساختار ریاضی نظریه و ناسازگاری جابه‌جایی عملگرهای مکان و تکانه می‌آید. اگر مکان بسیار متمرکز باشد، پراکندگی تکانه ناگزیر بزرگ‌تر می‌شود.</p>
+  </details>
+  <details><summary>اندازه‌گیری کوانتومی؛ نقش دستگاه چیست؟</summary>
+   <p>اندازه‌گیری کوانتومی برهم‌کنش فیزیکی سامانه با دستگاه و محیط است. در توصیف استاندارد، نتیجه‌ای مشخص از میان مقادیر مجاز به دست می‌آید و حالتِ مورد استفاده برای پیش‌بینی‌های بعدی به‌روزرسانی می‌شود. اینکه این فرایند دقیقاً چگونه باید در بنیادی‌ترین سطح فهمیده شود، به مسئلهٔ اندازه‌گیری مربوط است. هیچ شواهدی لازم نیست که آگاهی یا ذهن انسان عامل ویژه‌ای در آن باشد.</p>
+  </details>
+  <details><summary>تونل‌زنی کوانتومی</summary>
+   <p>در فیزیک کلاسیک، ذره‌ای با انرژی کمتر از ارتفاع یک سد نمی‌تواند از آن عبور کند. در کوانتوم، تابع موج درون سد به صفر ناگهانی تبدیل نمی‌شود و احتمال غیرصفر برای یافتن ذره در سوی دیگر وجود دارد؛ این پدیده تونل‌زنی است. تونل‌زنی در واپاشی آلفا، برخی واکنش‌های هسته‌ای و ابزارهایی مانند میکروسکوپ تونلی روبشی نقش دارد.</p>
+  </details>
+  <details><summary>اسپین؛ ویژگی کوانتومی ذرات</summary>
+   <p>اسپین تکانهٔ زاویه‌ای ذاتی ذره است. نباید آن را به معنای دقیق، چرخش یک توپ کوچک به دور خودش تصور کرد. برای ذرات اسپین نیمه‌صحیح مانند الکترون، اندازه‌گیری اسپین در راستای معین تنها نتایج گسسته‌ای دارد. آزمایش اشترن–گرلاخ نمونهٔ مهمی برای نمایش کوانتیده‌بودن مؤلفهٔ تکانهٔ زاویه‌ای است.</p>
+  </details>
+  <details><summary>اصل طرد پائولی و تفاوت فرمیون‌ها و بوزون‌ها</summary>
+   <p>ذرات با اسپین نیمه‌صحیح فرمیون‌اند؛ الکترون، پروتون و نوترون از نمونه‌های مهم‌اند. طبق اصل طرد پائولی، دو فرمیون یکسان نمی‌توانند در یک سامانه در یک حالت کوانتومی کاملاً یکسان قرار گیرند. این اصل در ساختار لایه‌های الکترونی اتم‌ها و پایداری ماده نقش اساسی دارد. بوزون‌ها اسپین صحیح دارند و می‌توانند در یک حالت کوانتومی مشترک حضور داشته باشند؛ فوتون نمونه‌ای از بوزون است.</p>
+  </details>
+  <details><summary>درهم‌تنیدگی و آزمون‌های بل</summary>
+   <p>دو یا چند سامانه می‌توانند حالتی مشترک داشته باشند که حالت هر بخش به‌تنهایی برای توصیف کل کافی نباشد. درهم‌تنیدگی باعث هم‌بستگی‌هایی می‌شود که از محدودیت‌های نظریه‌های کلاسیکِ دارای متغیرهای پنهان محلی فراتر می‌روند. آزمون‌های نامساوی بل این تفاوت را به‌صورت آزمایشی می‌سنجند.</p>
+   <p>با این حال، درهم‌تنیدگی به معنی فرستادن پیام دلخواه یا اطلاعات قابل‌کنترل با سرعت بیشتر از نور نیست. نتایج اندازه‌گیری‌ها تصادفی‌اند و برای مقایسهٔ آن‌ها به ارتباط کلاسیک نیاز است؛ بنابراین نسبیت نقض نمی‌شود.</p>
+  </details>
+  <details><summary>واهمدوسی؛ چرا جهان روزمره کلاسیکی به نظر می‌رسد؟</summary>
+   <p>سامانه‌های کوانتومی معمولاً از محیط جدا نیستند. برهم‌کنش با فوتون‌های محیط، مولکول‌های هوا و درجات آزادی دیگر می‌تواند فازهای نسبیِ برهم‌نهی را برای مشاهدهٔ عملی غیرقابل‌دسترس کند. این فرایند واهمدوسی نام دارد و توضیح می‌دهد چرا تداخل کوانتومی در مقیاس‌های بزرگ به‌سادگی دیده نمی‌شود. واهمدوسی بخش مهمی از مسئلهٔ اندازه‌گیری را روشن می‌کند، اما به‌تنهایی همهٔ اختلاف‌های تفسیری را حل نمی‌کند.</p>
+  </details>
+  <h3 id="quantum-particles" style="margin-top:28px">۵) نظریه میدان کوانتومی و مدل استاندارد ذرات</h3>
+  <details open><summary>در نظریه میدان کوانتومی، ذره چیست؟</summary>
+   <p>در نظریه میدان کوانتومی، میدان‌ها اجزای بنیادی توصیف‌اند و آنچه به شکل ذره آشکار می‌کنیم می‌تواند برانگیختگی کوانتومی یک میدان باشد. برای نمونه، فوتون برانگیختگی میدان الکترومغناطیسی است. این چارچوب مکانیک کوانتومی را با نسبیت خاص سازگار می‌کند و پایهٔ توصیف ذرات و برهم‌کنش‌های بنیادی در انرژی‌های بالا است.</p>
+  </details>
+  <details><summary>مدل استاندارد: کوارک‌ها، لپتون‌ها و بوزون‌ها</summary>
+   <p>مدل استاندارد، ذرات بنیادی شناخته‌شده و سه برهم‌کنش بنیادی را توصیف می‌کند: الکترومغناطیسی، ضعیف و قوی. مادهٔ معمولی از ذراتی مانند کوارک‌های بالا و پایین و الکترون ساخته شده است. شش نوع کوارک و شش نوع لپتون شناخته شده‌اند؛ نوترینوها از لپتون‌ها هستند. گلوئون‌ها حامل برهم‌کنش قوی، فوتون حامل برهم‌کنش الکترومغناطیسی و بوزون‌های W و Z حامل برهم‌کنش ضعیف‌اند.</p>
+   <p>گرانش در مدل استاندارد به‌عنوان یک نظریهٔ کوانتومیِ کامل گنجانده نشده است. به همین دلیل، یکی از هدف‌های بزرگ فیزیک بنیادی ساخت چارچوبی سازگار برای گرانش و کوانتوم است.</p>
+  </details>
+  <details><summary>میدان هیگز و بوزون هیگز؛ یک سوءبرداشت رایج</summary>
+   <p>میدان هیگز در سازوکار شکست تقارن الکتروضعیف نقش دارد و برهم‌کنش با آن به بوزون‌های W و Z جرم می‌دهد؛ همچنین به جرم ذرات بنیادی مانند کوارک‌ها و لپتون‌ها از راه برهم‌کنش یوکاوا مربوط است. اما بیشتر جرم پروتون و نوترون از انرژی جنبشی و برهم‌کنش‌های قویِ کوارک‌ها و گلوئون‌ها درون آن‌ها سرچشمه می‌گیرد، نه مستقیماً از میدان هیگز. پس جملهٔ «هیگز تمام جرم جهان را می‌سازد» دقیق نیست.</p>
+  </details>
+  <details><summary>پادماده و نابودی ماده–پادماده</summary>
+   <p>بسیاری از ذرات، پادذره‌ای با بارهای کوانتومی متناظر دارند؛ برای نمونه، پادذرهٔ الکترون پوزیترون است. هنگام برخورد ذره و پادذره، ممکن است انرژی و ذرات دیگری تولید شوند و قوانین پایستگی رعایت شوند. رابطهٔ E=mc² پیوند جرم و انرژی را بیان می‌کند؛ این فرایند به معنی ناپدیدشدن انرژی نیست. اینکه چرا جهان قابل مشاهده از ماده بیشتر از پادماده تشکیل شده، یکی از پرسش‌های بزرگ کیهان‌شناسی و فیزیک ذرات است.</p>
+  </details>
+  <h3 id="quantum-tech" style="margin-top:28px">۶) فناوری‌های کوانتومی</h3>
+  <div class="cosmos-grid">
+   <article class="cosmos-card"><h3>رایانش کوانتومی</h3><p>کیوبیت می‌تواند برهم‌نهی داشته باشد و کیوبیت‌ها می‌توانند درهم‌تنیده شوند. الگوریتم‌های خاصی برای بعضی مسئله‌ها مزیت بالقوه دارند؛ اما رایانهٔ کوانتومی برای هر کاری سریع‌تر از رایانهٔ معمولی نیست.</p></article>
+   <article class="cosmos-card"><h3>رمزنگاری و ارتباط کوانتومی</h3><p>برخی پروتکل‌ها از ویژگی‌های اندازه‌گیری کوانتومی برای آشکارکردن شنود استفاده می‌کنند. این فناوری چالش‌های مهندسی مانند تلفات کانال، نویز و تصحیح خطا دارد.</p></article>
+   <article class="cosmos-card"><h3>حسگرهای کوانتومی</h3><p>اتم‌ها، فوتون‌ها و حالت‌های کوانتومی می‌توانند در ساعت‌های اتمی، اندازه‌گیری میدان مغناطیسی، گرانش و زمان‌سنجی بسیار دقیق به کار روند.</p></article>
+  </div>
+  <h3 id="quantum-frontier" style="margin-top:28px">۷) مرزهای باز پژوهش</h3>
+  <details><summary>گرانش کوانتومی؛ پیوند دو نظریهٔ بزرگ</summary><p>نسبیت عام گرانش و فضا-زمان را در مقیاس‌های بزرگ توصیف می‌کند و نظریهٔ کوانتومی میدان‌ها ذرات و سه برهم‌کنش دیگر را در مقیاس‌های کوچک. در شرایطی مانند نزدیکی مرکز سیاه‌چاله یا جهان بسیار آغازین، هر دو چارچوب اهمیت پیدا می‌کنند. نظریه‌هایی مانند گرانش کوانتومی حلقه‌ای و نظریهٔ ریسمان پیشنهادهایی پژوهشی‌اند؛ هنوز هیچ‌کدام به‌عنوان نظریهٔ نهاییِ تأییدشده شناخته نمی‌شوند.</p></details>
+  <details><summary>تفسیرهای کوانتوم و مسئلهٔ اندازه‌گیری</summary><p>تفسیر کپنهاگی، جهان‌های متعدد، نظریهٔ بوهمی و رویکردهای دیگر تلاش می‌کنند معنای ریاضی نظریه و اندازه‌گیری را روشن کنند. باید میان پیش‌بینی‌های تجربیِ مشترک نظریه و تفسیر فلسفی آن‌ها تفاوت گذاشت. وجود چند تفسیر به این معنی نیست که داده‌های آزمایش دلخواه‌اند.</p></details>
+  <details><summary>مسئله‌های حل‌نشدهٔ دیگر</summary><p>ماهیت مادهٔ تاریک، توضیح عدم تقارن ماده و پادماده، جرم‌های نوترینوها، منشأ برخی پارامترهای مدل استاندارد و چگونگی یکپارچه‌سازی گرانش با کوانتوم از پرسش‌های مهم پژوهش‌های کنونی‌اند.</p></details>
+  <p class="cosmos-note warning">دقت علمی: توضیح‌های این بخش برای آموزش‌اند و جایگزین کتاب درسی دانشگاهی، مقالهٔ تخصصی یا محاسبات کامل نیستند. هر جا نظریه هنوز آزمون قطعی ندارد، آن را با برچسب «پرسش باز» مشخص کرده‌ایم.</p>
+ </div>
+</section>
+
+<section class="cosmos-deep" id="space-lab">
+ <div class="wrap">
+  <div class="section-head"><div class="cosmos-kicker">INTERACTIVE SPACE LAB • 03</div><h2>آزمایشگاه سه‌بعدی کیهان</h2><p>میان چند صحنهٔ کیهانی جابه‌جا شو؛ چرخش و عمق‌نمایی را روی بوم تعاملی ببین.</p></div>
+  <div class="cosmos-lab">
+   <canvas id="cosmosCanvas" aria-label="شبیه‌ساز تصویری اجرام کیهانی"></canvas>
+   <div class="cosmos-control"><label for="cosmosScene">انتخاب جرم:</label>
+    <select id="cosmosScene"><option value="blackhole">سیاه‌چاله و قرص برافزایشی</option><option value="neutron">ستارهٔ نوترونی و پرتوهای تپ‌اختر</option><option value="galaxy">کهکشان مارپیچی</option><option value="exoplanet">سیارهٔ فراخورشیدی</option></select>
+    <button id="cosmosPause" type="button">⏸ توقف حرکت</button><button id="cosmosBurst" type="button">✨ افکت ستاره‌ای</button>
+   </div>
+   <div class="cosmos-lab-info"><div><b id="cosmosSceneName">سیاه‌چاله</b><p id="cosmosSceneText">حلقهٔ درخشان، نمایش هنری گاز داغ در حال گردش است؛ خود افق رویداد تاریک دیده می‌شود.</p></div><div><b>یادداشت علمی</b><p id="cosmosSceneNote">این شبیه‌سازی آموزشی و هنری است، نه محاسبهٔ نسبیتی یا مدل دقیق داده‌های رصدی.</p></div></div>
+   <p class="cosmos-caption">نمای شبه‌سه‌بعدی با Canvas و انیمیشن ساخته شده است. سرعت و اندازه‌ها برای نمایش تنظیم شده‌اند و مقیاس واقعی کیهانی ندارند.</p>
+  </div>
+ </div>
+</section>
+
+<section class="cosmos-deep" id="academy">
+ <div class="wrap">
+  <div class="section-head"><div class="cosmos-kicker">COSMOS ACADEMY • 04</div><h2>آکادمی کیهان؛ یاد بگیر و خودت را بیازمای</h2><p>یک آزمون کوتاه از اخترفیزیک و کوانتوم؛ پاسخ درست را انتخاب کن و امتیاز بگیر.</p></div>
+  <div class="academy-box">
+   <div class="academy-meta"><span>⭐ امتیاز: <b id="academyScore">۰</b></span><span>🏅 بهترین نتیجه: <b id="academyBest">۰</b></span><span>📘 پرسش: <b id="academyCounter">۱ از ۱۰</b></span></div>
+   <div class="academy-progress"><span id="academyProgress"></span></div>
+   <div class="academy-question" id="academyQuestion">در حال آماده‌سازی آزمون…</div>
+   <div class="academy-options" id="academyOptions"></div>
+   <div class="academy-feedback" id="academyFeedback" aria-live="polite">یک گزینه را انتخاب کن.</div>
+   <div class="cosmos-control"><button class="cosmos-action" id="academyNext" type="button" disabled>سؤال بعدی ←</button><button class="cosmos-action" id="academyRestart" type="button">شروع دوباره</button></div>
+  </div>
+  <p class="cosmos-note">آزمون برای یادگیری طراحی شده است؛ اگر پاسخ اشتباه بود، توضیح را بخوان و دوباره تلاش کن. بهترین امتیاز فقط روی همین مرورگر ذخیره می‌شود.</p>
+ </div>
+</section>
+
+<section class="cosmos-deep" id="cosmos-assistant">
+ <div class="wrap">
+  <div class="section-head"><div class="cosmos-kicker">COSMOS KNOWLEDGE ENGINE • 05</div><h2>راهنمای جست‌وجوی دانش COSMOS</h2><p>سؤال یا کلیدواژه بنویس تا در کتابخانهٔ علمی سایت جست‌وجو شود.</p></div>
+  <div class="cosmos-search">
+   <div class="cosmos-search-row"><input class="cosmos-search-input" id="cosmosKnowledgeInput" type="search" placeholder="مثلاً: چرا ستارهٔ نوترونی این‌قدر چگال است؟" aria-label="جست‌وجو در دانشنامه COSMOS"><button class="cosmos-action" id="cosmosKnowledgeAsk" type="button">جست‌وجو و پاسخ</button></div>
+   <div class="cosmos-answer" id="cosmosKnowledgeAnswer" aria-live="polite">سلام! یک سؤال دربارهٔ ستاره‌ها، سیاه‌چاله‌ها، کهکشان‌ها یا فیزیک کوانتومی بنویس.</div>
+   <div class="cosmos-control"><button class="cosmos-action" id="cosmosKnowledgeSpeak" type="button">🔊 خواندن پاسخ</button><button class="cosmos-action" id="cosmosKnowledgeClear" type="button">پاک‌کردن</button></div>
+   <p class="cosmos-caption">شفاف‌سازی: این نسخه یک جست‌وجوگر دانش‌محور محلی است و پاسخ‌ها را از مطالب همین سایت پیدا می‌کند؛ به مدل هوش مصنوعی آنلاین وصل نیست. برای گفت‌وگوی آزاد با یک مدل واقعی، باید سرور امن و سرویس هوش مصنوعی جداگانه راه‌اندازی شود و کلید محرمانه هرگز نباید داخل فایل HTML قرار بگیرد.</p>
+  </div>
+ </div>
+</section>
+
+<section class="cosmos-deep" id="sources">
+ <div class="wrap">
+  <div class="section-head"><div class="cosmos-kicker">SCIENTIFIC REFERENCES</div><h2>منابع علمی و مطالعهٔ بیشتر</h2><p>مطالب دانشنامه با مراجعه به منابع آموزشی و علمی معتبر تدوین شده‌اند.</p></div>
+  <div class="cosmos-source-list">
+   <a href="https://science.nasa.gov/universe/" target="_blank" rel="noopener">NASA Science — جهان، ستاره‌ها، کهکشان‌ها و سیاه‌چاله‌ها ↗</a>
+   <a href="https://science.nasa.gov/astrophysics/" target="_blank" rel="noopener">NASA Astrophysics — برنامه‌ها و پرسش‌های اخترفیزیک ↗</a>
+   <a href="https://science.nasa.gov/universe/the-big-bang/" target="_blank" rel="noopener">NASA — مدل مهبانگ و تاریخ کیهان ↗</a>
+   <a href="https://home.cern/science/physics/standard-model" target="_blank" rel="noopener">CERN — مدل استاندارد ذرات بنیادی ↗</a>
+   <a href="https://home.cern/science/physics/higgs-boson/what" target="_blank" rel="noopener">CERN — میدان و بوزون هیگز ↗</a>
+   <a href="https://www.nist.gov/blogs/taking-measure/5-concepts-can-help-you-understand-quantum-mechanics-and-technology-without" target="_blank" rel="noopener">NIST — پنج مفهوم پایهٔ مکانیک کوانتومی ↗</a>
+   <a href="https://uwaterloo.ca/institute-for-quantum-computing/outreach/quantum-101/quantum-mechanics" target="_blank" rel="noopener">University of Waterloo — مبانی کوانتوم ↗</a>
+   <a href="https://science.nasa.gov/universe/glossary/" target="_blank" rel="noopener">NASA — واژه‌نامهٔ جهان و اخترفیزیک ↗</a>
+  </div>
+  <p class="deep-footer-note">این پیوندها برای مطالعهٔ بیشترند. اطلاعات علمی در طول زمان با رصدها و آزمایش‌های تازه اصلاح و تکمیل می‌شوند.</p>
+ </div>
+</section>
+
+</main>
+<footer><div class="wrap"><div class="brand" style="color:white">COS<span>MOS</span></div><p data-fa="جهان بزرگ‌تر از آن است که از پرسیدن دست بکشیم." data-en="The universe is too vast for us to ever stop asking questions.">جهان بزرگ‌تر از آن است که از پرسیدن دست بکشیم.</p><p>© 2026 COSMOS • Educational project</p></div></footer>
+<script>
+const translations={mercury:{fa:["عطارد | Mercury","نزدیک‌ترین سیاره به خورشید و کوچک‌ترین سیاره منظومه شمسی است. جوّ ضخیم و محافظی ندارد و اختلاف دمای شب و روز آن بسیار زیاد است."],en:["Mercury","The closest planet to the Sun and the smallest in the Solar System. It has no thick protective atmosphere, so day-night temperature differences are extreme."]},venus:{fa:["زهره | Venus","داغ‌ترین سیاره منظومه شمسی است. جوّ بسیار ضخیم و سرشار از دی‌اکسید کربن دارد و اثر گلخانه‌ای شدیدی در آن رخ می‌دهد."],en:["Venus","The hottest planet in the Solar System. Its thick carbon-dioxide atmosphere creates an extreme greenhouse effect."]},earth:{fa:["زمین | Earth","تنها سیاره شناخته‌شده‌ای که در آن حیات وجود دارد. حدود ۷۱٪ سطح آن با آب پوشیده شده است."],en:["Earth","The only world known to host life. About 71% of its surface is covered by water."]},mars:{fa:["مریخ | Mars","به‌خاطر اکسید آهن موجود در خاکش سرخ دیده می‌شود. دانشمندان نشانه‌هایی از آب مایع در گذشته آن یافته‌اند."],en:["Mars","It looks red because of iron oxide in its soil. Scientists have found evidence that liquid water existed there in the past."]},jupiter:{fa:["مشتری | Jupiter","بزرگ‌ترین سیاره منظومه شمسی است. لکه سرخ بزرگ آن طوفانی عظیم است که مدت بسیار طولانی ادامه داشته است."],en:["Jupiter","The largest planet in the Solar System. Its Great Red Spot is a giant storm that has lasted for a very long time."]},saturn:{fa:["زحل | Saturn","به حلقه‌های باشکوهش معروف است. این حلقه‌ها عمدتاً از تکه‌های یخ و سنگ تشکیل شده‌اند."],en:["Saturn","Famous for its spectacular rings, which are made mostly of pieces of ice and rock."]},uranus:{fa:["اورانوس | Uranus","غولی یخی با رنگ آبی-سبز است. محور چرخشش بسیار کج است و تقریباً به پهلو می‌چرخد."],en:["Uranus","An ice giant with a blue-green color. Its rotation axis is dramatically tilted, making it spin almost on its side."]},neptune:{fa:["نپتون | Neptune","دورترین سیاره شناخته‌شده منظومه شمسی از خورشید است و بادهای بسیار پرسرعتی دارد."],en:["Neptune","The farthest known planet from the Sun, with extremely fast winds."]}};
+let lang='fa';const names={mercury:'عطارد',venus:'زهره',earth:'زمین',mars:'مریخ',jupiter:'مشتری',saturn:'زحل',uranus:'اورانوس',neptune:'نپتون'};
+const list=document.getElementById('planetList');
+Object.keys(translations).forEach(k=>{const b=document.createElement('button');b.className='planet-pick'+(k==='earth'?' active':'');b.dataset.planet=k;b.textContent=names[k];b.addEventListener('click',()=>selectPlanet(k));list.appendChild(b)});
+function selectPlanet(k){const d=translations[k][lang];document.getElementById('planetName').textContent=d[0];document.getElementById('planetInfo').textContent=d[1];document.querySelectorAll('.planet-pick,.planet-dot').forEach(e=>e.classList.toggle('active',e.dataset.planet===k))}
+document.querySelectorAll('.planet-dot').forEach(e=>e.addEventListener('click',()=>selectPlanet(e.dataset.planet)));
+const slider=document.getElementById('bhSize');slider.addEventListener('input',()=>{let n=Number(slider.value);document.getElementById('bhCore').style.width=n+'px';document.getElementById('bhCore').style.height=n+'px';document.getElementById('bhRing').style.width=(n*2.25)+'px';document.getElementById('bhRing').style.height=(n*.8)+'px';document.getElementById('bhValue').textContent=Math.round(n/94*100)+'%';document.getElementById('bhReadout').textContent=lang==='fa'?'اندازه نمایشی هسته: '+n+' واحد (فقط برای نمایش).':'Illustrative core size: '+n+' units (visual only).'});
+document.getElementById('langBtn').addEventListener('click',()=>{lang=lang==='fa'?'en':'fa';document.documentElement.lang=lang;document.documentElement.dir=lang==='fa'?'rtl':'ltr';document.querySelectorAll('[data-fa]').forEach(e=>e.textContent=e.dataset[lang]);document.getElementById('langBtn').textContent=lang==='fa'?'EN':'FA';selectPlanet(document.querySelector('.planet-pick.active')?.dataset.planet||'earth');document.getElementById('bhReadout').textContent=lang==='fa'?'اندازه را تغییر بده تا ظاهر سیاه‌چاله را ببینی.':'Move the slider to change the black hole appearance.';document.getElementById('voiceInput').placeholder=lang==='fa'?'مثلاً: چرا نور از سیاه‌چاله فرار نمی‌کند؟':'For example: Why can’t light escape a black hole?';document.getElementById('micButton').textContent=lang==='fa'?'🎙️ صحبت کن':'🎙️ Speak';document.querySelectorAll('#scientistChoice option').forEach(o=>o.textContent=o.dataset[lang]);});
+
+// COSMOS voice guide: browser speech recognition + speech synthesis,
+// backed by a small, clearly labelled educational answer library.
+const voiceForm = document.getElementById('voiceForm');
+const voiceInput = document.getElementById('voiceInput');
+const chatLog = document.getElementById('chatLog');
+const voiceStatus = document.getElementById('voiceStatus');
+const micButton = document.getElementById('micButton');
+const stopVoiceButton = document.getElementById('stopVoiceButton');
+const clearChatButton = document.getElementById('clearChatButton');
+const scientistChoice = document.getElementById('scientistChoice');
+const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition = null;
+let listening = false;
+
+const guideAnswers = {
+  fa: [
+    {keys:['سیاه چاله','سیاه‌چاله','black hole'], answer:'سیاه‌چاله ناحیه‌ای از فضا-زمان است که گرانش آن بسیار شدید است. اگر از مرزی به نام افق رویداد عبور کنی، حتی نور هم نمی‌تواند به بیرون برگردد. سیاه‌چاله‌ها همه چیز را از فاصله دور مثل جاروبرقی نمی‌مکند.'},
+    {keys:['افق رویداد','event horizon'], answer:'افق رویداد مرز بازگشت‌ناپذیر سیاه‌چاله است. از درون این مرز هیچ پیام یا نوری نمی‌تواند به ناظری بیرون از آن برسد.'},
+    {keys:['تکینگی','singularity'], answer:'در نسبیت عام کلاسیک، مرکز سیاه‌چاله به حالتی به نام تکینگی می‌رسد که کمیت‌های نظریه مشکل‌دار یا نامتناهی می‌شوند. هنوز نمی‌دانیم توصیف نهایی در گرانش کوانتومی چه خواهد بود؛ پس درباره ماهیت واقعی مرکز سیاه‌چاله قطعیت نداریم.'},
+    {keys:['نور','سرعت نور','light'], answer:'سرعت نور در خلأ حدود ۳۰۰ هزار کیلومتر بر ثانیه است. در نسبیت، هیچ جسم دارای جرم نمی‌تواند با شتاب‌دادن به سرعت نور برسد.'},
+    {keys:['نسبیت','زمان','relativity','time'], answer:'طبق نسبیت اینشتین، زمان برای همه ناظران الزاماً با یک نرخ نمی‌گذرد. سرعت زیاد و گرانش قوی می‌توانند باعث شوند دو ساعت، زمان متفاوتی را اندازه بگیرند.'},
+    {keys:['گرانش','جاذبه','gravity'], answer:'گرانش نیرویی است که میان جرم‌ها اثر می‌گذارد. در نسبیت عام، گرانش را با خمیدگی فضا-زمان توصیف می‌کنیم؛ جرم و انرژی هندسه فضا-زمان را تغییر می‌دهند.'},
+    {keys:['ماده تاریک','dark matter'], answer:'ماده تاریک نور را مانند ماده معمولی گسیل یا جذب نمی‌کند، اما اثر گرانشی آن را در حرکت ستاره‌ها و کهکشان‌ها می‌بینیم. ماهیت دقیق آن هنوز ناشناخته است.'},
+    {keys:['انرژی تاریک','dark energy'], answer:'انرژی تاریک نامی است که برای توضیح شتاب‌گرفتن انبساط جهان به کار می‌رود. هنوز ماهیت بنیادی آن را نمی‌دانیم.'},
+    {keys:['مریخ','mars'], answer:'مریخ سیاره‌ای سنگی و سرخ‌رنگ است. رنگ سرخش بیشتر به دلیل وجود اکسید آهن در خاک آن است و شواهد نشان می‌دهند در گذشته آب مایع روی سطحش جریان داشته است.'},
+    {keys:['مشتری','jupiter'], answer:'مشتری بزرگ‌ترین سیاره منظومه شمسی است. لکه سرخ بزرگ آن یک طوفان عظیم و بسیار پایدار است.'},
+    {keys:['زحل','saturn'], answer:'زحل به حلقه‌هایش معروف است. حلقه‌ها از ذرات فراوان یخ و سنگ تشکیل شده‌اند و پهنای زیادی دارند، اما ضخامتشان در مقایسه با پهنا بسیار کم است.'},
+    {keys:['خورشید','sun'], answer:'خورشید یک ستاره است که انرژی‌اش را از همجوشی هسته‌ای در مرکز خود به دست می‌آورد؛ هسته‌های هیدروژن در آن به هلیوم تبدیل می‌شوند.'},
+    {keys:['کهکشان','راه شیری','galaxy','milky way'], answer:'کهکشان راه شیری خانه منظومه شمسی ماست. این کهکشان مارپیچی، صدها میلیارد ستاره دارد و خورشید یکی از آن‌هاست.'},
+    {keys:['بیگ بنگ','مهبانگ','big bang'], answer:'مدل مهبانگ می‌گوید جهان قابل مشاهده حدود ۱۳٫۸ میلیارد سال پیش از حالت بسیار داغ و چگال آغاز به انبساط کرده است. این مدل درباره آغاز انبساط کیهان است، نه انفجاری در یک فضای خالی از پیش موجود.'},
+    {keys:['فضانورد','فضا','space'], answer:'فضا بسیار بزرگ است و بیشتر آن خلأ بسیار رقیق است. دانشمندان با تلسکوپ‌های زمینی و فضایی و فضاپیماها آن را مطالعه می‌کنند.'}
+  ],
+  en: [
+    {keys:['black hole'],answer:'A black hole is a region of spacetime with extremely strong gravity. Beyond its event horizon, not even light can escape. Black holes do not suck in everything from far away like vacuum cleaners.'},
+    {keys:['event horizon'],answer:'The event horizon is the point-of-no-return boundary of a black hole. No message or light from inside it can reach an outside observer.'},
+    {keys:['singularity'],answer:'Classical general relativity predicts a singularity at the center, where the theory breaks down. A future theory of quantum gravity may give a better description, but we do not know the final answer yet.'},
+    {keys:['light','speed of light'],answer:'Light travels at about 300,000 kilometers per second in a vacuum. In relativity, an object with mass cannot be accelerated to the speed of light.'},
+    {keys:['relativity','time'],answer:'In Einstein’s relativity, time does not pass at exactly the same rate for every observer. High speed and strong gravity can make clocks measure different elapsed times.'},
+    {keys:['gravity'],answer:'Gravity is the attraction associated with mass and energy. In general relativity, gravity is described through the curvature of spacetime.'},
+    {keys:['dark matter'],answer:'Dark matter does not emit or absorb light like ordinary matter, but its gravitational effects can be observed in stars and galaxies. Its exact nature is still unknown.'},
+    {keys:['dark energy'],answer:'Dark energy is the name given to whatever may explain the accelerated expansion of the universe. Its fundamental nature remains unknown.'},
+    {keys:['mars'],answer:'Mars is a rocky red planet. Its color mainly comes from iron oxide in its soil, and evidence suggests liquid water flowed on its surface in the distant past.'},
+    {keys:['jupiter'],answer:'Jupiter is the largest planet in our Solar System. Its Great Red Spot is a huge, long-lasting storm.'},
+    {keys:['saturn'],answer:'Saturn is famous for its rings, which are made of countless particles of ice and rock.'},
+    {keys:['sun'],answer:'The Sun is a star. It produces energy through nuclear fusion in its core, where hydrogen nuclei combine to form helium.'},
+    {keys:['galaxy','milky way'],answer:'The Milky Way is the galaxy that contains our Solar System. It is a spiral galaxy with hundreds of billions of stars.'},
+    {keys:['big bang'],answer:'The Big Bang model says the observable universe began expanding from an extremely hot, dense state about 13.8 billion years ago. It was not an explosion into pre-existing empty space.'},
+    {keys:['space'],answer:'Space is vast, and most of it is an extremely thin vacuum. Scientists study it with ground and space telescopes and spacecraft.'}
+  ]
+};
+
+function addChatMessage(text, who){
+  const item=document.createElement('div');
+  item.className='chat-msg '+who;
+  item.textContent=text;
+  chatLog.appendChild(item);
+  chatLog.scrollTop=chatLog.scrollHeight;
+}
+function normalizeText(value){
+  return value.toLowerCase().replace(/[َُِّْـ]/g,'').replace(/ي/g,'ی').replace(/ك/g,'ک').trim();
+}
+function makeGuideAnswer(question){
+  const q=normalizeText(question);
+  const answers=guideAnswers[lang];
+  const match=answers.find(item=>item.keys.some(key=>q.includes(normalizeText(key))));
+  const persona=scientistChoice.value;
+  let answer=match ? match.answer : (lang==='fa'
+    ? 'سؤال جالبی است! فعلاً در کتابخانه آموزشی من پاسخ آماده‌ای برای این موضوع ندارم. می‌توانی درباره سیاه‌چاله، افق رویداد، تکینگی، گرانش، نسبیت، ماده تاریک، خورشید یا سیاره‌ها سؤال کنی.'
+    : 'That is an interesting question! I do not have a prepared answer for that topic in my current educational library. Try asking about black holes, event horizons, singularities, gravity, relativity, dark matter, the Sun, or planets.');
+  const intro=lang==='fa'
+    ? (persona==='cosmologist'?'از دید کیهان‌شناسی: ':persona==='physicist'?'از دید فیزیک: ':'از دید اخترشناسی: ')
+    : (persona==='cosmologist'?'From a cosmology perspective: ':persona==='physicist'?'From a physics perspective: ':'From an astronomy perspective: ');
+  return intro+answer;
+}
+function speakAnswer(text){
+  if(!('speechSynthesis' in window)){voiceStatus.textContent=lang==='fa'?'مرورگر این گوشی پخش گفتار را پشتیبانی نمی‌کند.':'Speech playback is not supported by this browser.';return;}
+  window.speechSynthesis.cancel();
+  const utterance=new SpeechSynthesisUtterance(text);
+  utterance.lang=lang==='fa'?'fa-IR':'en-US';
+  utterance.rate=0.94;
+  utterance.pitch=1;
+  utterance.onstart=()=>{voiceStatus.textContent=lang==='fa'?'در حال خواندن پاسخ با صدا…':'Reading the answer aloud…';};
+  utterance.onend=()=>{voiceStatus.textContent=lang==='fa'?'پاسخ تمام شد. سؤال بعدی را بپرس!':'Answer finished. Ask another question!';};
+  window.speechSynthesis.speak(utterance);
+}
+function answerQuestion(question){
+  const clean=question.trim();
+  if(!clean)return;
+  addChatMessage(clean,'user');
+  const answer=makeGuideAnswer(clean);
+  addChatMessage(answer,'bot');
+  speakAnswer(answer);
+}
+voiceForm.addEventListener('submit',event=>{event.preventDefault();const q=voiceInput.value;voiceInput.value='';answerQuestion(q);});
+micButton.addEventListener('click',()=>{
+  if(!SpeechRecognitionAPI){
+    voiceStatus.textContent=lang==='fa'?'این مرورگر قابلیت تشخیص گفتار را ندارد. از کادر نوشتن سؤال استفاده کن یا سایت را در Chrome به‌روز باز کن.':'Speech recognition is not available in this browser. Type your question or try an updated Chrome browser.';
+    return;
+  }
+  if(listening && recognition){recognition.stop();return;}
+  recognition=new SpeechRecognitionAPI();
+  recognition.lang=lang==='fa'?'fa-IR':'en-US';
+  recognition.interimResults=false;
+  recognition.maxAlternatives=1;
+  recognition.onstart=()=>{listening=true;micButton.textContent=lang==='fa'?'⏹ توقف ضبط':'⏹ Stop recording';voiceStatus.textContent=lang==='fa'?'دارم گوش می‌دهم؛ حالا سؤال را بگو…':'Listening… speak your question now.';};
+  recognition.onresult=event=>{const transcript=event.results[0][0].transcript;voiceInput.value=transcript;answerQuestion(transcript);voiceInput.value='';};
+  recognition.onerror=event=>{voiceStatus.textContent=lang==='fa'?'خطای میکروفون یا تشخیص گفتار: '+event.error:'Microphone or speech recognition error: '+event.error;};
+  recognition.onend=()=>{listening=false;micButton.textContent=lang==='fa'?'🎙️ صحبت کن':'🎙️ Speak';};
+  try{recognition.start();}catch(err){voiceStatus.textContent=lang==='fa'?'شروع میکروفون ممکن نشد. دوباره امتحان کن.':'Could not start the microphone. Please try again.';}
+});
+stopVoiceButton.addEventListener('click',()=>{if(recognition&&listening)recognition.stop();if('speechSynthesis'in window)window.speechSynthesis.cancel();voiceStatus.textContent=lang==='fa'?'صدا متوقف شد.':'Audio stopped.';});
+clearChatButton.addEventListener('click',()=>{chatLog.innerHTML='';addChatMessage(lang==='fa'?'گفت‌وگو پاک شد. سؤال تازه‌ای بپرس!':'Conversation cleared. Ask a new question!','bot');if('speechSynthesis'in window)window.speechSynthesis.cancel();});
+
+
+// Live internet modules: NASA APOD, Spaceflight News API, and Wikipedia.
+const apodStatus=document.getElementById('apodStatus');
+const apodContent=document.getElementById('apodContent');
+const newsStatus=document.getElementById('newsStatus');
+const newsContent=document.getElementById('newsContent');
+const wikiStatus=document.getElementById('wikiStatus');
+const wikiResults=document.getElementById('wikiResults');
+
+function liveText(fa,en){return lang==='fa'?fa:en;}
+function safeExternalLink(url,label){
+  const a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noopener noreferrer'; a.textContent=label; return a;
+}
+async function loadApod(){
+  apodStatus.textContent=liveText('در حال دریافت تصویر روز ناسا…','Loading NASA picture of the day…');
+  apodContent.replaceChildren();
+  try{
+    const response=await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY');
+    if(!response.ok) throw new Error('HTTP '+response.status);
+    const data=await response.json();
+    const title=document.createElement('h4'); title.textContent=data.title||'NASA APOD';
+    const date=document.createElement('p'); date.className='voice-small'; date.textContent=data.date||'';
+    apodContent.append(title,date);
+    if(data.media_type==='image' && data.url){
+      const img=document.createElement('img'); img.src=data.url; img.alt=data.title||'NASA astronomy image'; img.loading='lazy'; apodContent.append(img);
+    }else if(data.thumbnail_url){
+      const img=document.createElement('img'); img.src=data.thumbnail_url; img.alt=data.title||'NASA astronomy media'; img.loading='lazy'; apodContent.append(img);
+    }
+    const explanation=document.createElement('p'); explanation.textContent=data.explanation||'';
+    apodContent.append(explanation);
+    if(data.url) apodContent.append(safeExternalLink(data.url,liveText('مشاهده در وب‌سایت ناسا','View on NASA website')));
+    apodStatus.textContent=liveText('به‌روز شد؛ داده‌ها مستقیماً از API ناسا دریافت شدند.','Updated from NASA’s API.');
+  }catch(error){
+    apodStatus.textContent=liveText('دریافت تصویر ممکن نشد. اتصال اینترنت یا دسترسی به سرویس ناسا را بررسی کن.','Could not load the picture. Check your connection or NASA service access.');
+  }
+}
+async function loadNews(){
+  newsStatus.textContent=liveText('در حال دریافت خبرهای فضایی…','Loading space news…');
+  newsContent.replaceChildren();
+  try{
+    const response=await fetch('https://api.spaceflightnewsapi.net/v4/articles/?limit=5');
+    if(!response.ok) throw new Error('HTTP '+response.status);
+    const data=await response.json();
+    const items=(data.results||[]);
+    if(!items.length) throw new Error('No articles');
+    items.forEach(item=>{
+      const wrap=document.createElement('div'); wrap.className='live-result';
+      const h=document.createElement('h4'); h.textContent=item.title||'Space news';
+      const p=document.createElement('p'); p.className='voice-small'; p.textContent=(item.news_site||'Space news')+' • '+(item.published_at?new Date(item.published_at).toLocaleDateString():'');
+      wrap.append(h,p);
+      if(item.url) wrap.append(safeExternalLink(item.url,liveText('خواندن خبر','Read article')));
+      newsContent.append(wrap);
+    });
+    newsStatus.textContent=liveText('خبرهای تازه از سرویس Spaceflight News دریافت شدند.','Latest articles loaded from Spaceflight News API.');
+  }catch(error){
+    newsStatus.textContent=liveText('خبرها بارگذاری نشدند؛ ممکن است سرویس یا اتصال اینترنت موقتاً در دسترس نباشد.','News could not be loaded. The service or connection may be temporarily unavailable.');
+  }
+}
+document.getElementById('wikiSearchForm').addEventListener('submit',async event=>{
+  event.preventDefault();
+  const query=document.getElementById('wikiSearchInput').value.trim();
+  if(!query)return;
+  wikiStatus.textContent=liveText('در حال جست‌وجو…','Searching…'); wikiResults.replaceChildren();
+  try{
+    const endpoint='https://'+(lang==='fa'?'fa':'en')+'.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(query)+'&gsrlimit=6&prop=extracts&exintro=1&explaintext=1&exsentences=3&format=json&origin=*';
+    const response=await fetch(endpoint);
+    if(!response.ok) throw new Error('HTTP '+response.status);
+    const data=await response.json();
+    const pages=Object.values(data.query?.pages||{}).sort((a,b)=>(a.index||0)-(b.index||0));
+    if(!pages.length){wikiStatus.textContent=liveText('نتیجه‌ای پیدا نشد. عبارت دیگری را امتحان کن.','No results found. Try another search.');return;}
+    pages.forEach(page=>{
+      const wrap=document.createElement('div'); wrap.className='live-result';
+      const h=document.createElement('h4'); h.textContent=page.title;
+      const p=document.createElement('p'); p.textContent=page.extract||'';
+      const url='https://'+(lang==='fa'?'fa':'en')+'.wikipedia.org/?curid='+page.pageid;
+      wrap.append(h,p,safeExternalLink(url,liveText('مطالعه مقاله کامل','Read full article')));
+      wikiResults.append(wrap);
+    });
+    wikiStatus.textContent=liveText('نتایج از ویکی‌پدیای '+(lang==='fa'?'فارسی':'انگلیسی')+' دریافت شدند.','Results loaded from '+(lang==='fa'?'Persian':'English')+' Wikipedia.');
+  }catch(error){wikiStatus.textContent=liveText('جست‌وجو انجام نشد. اتصال اینترنت را بررسی کن.','Search failed. Check your internet connection.');}
+});
+document.getElementById('reloadApod').addEventListener('click',loadApod);
+document.getElementById('reloadNews').addEventListener('click',loadNews);
+loadApod(); loadNews();
+
+
+
+// COSMOS ULTIMATE — extended local reference answers
+if (typeof guideAnswers !== 'undefined' && guideAnswers.fa) {
+ guideAnswers.fa.push(
+  {keys:['ستاره نوترونی','ستارهٔ نوترونی','پالسار','تپ اختر','مگنتار'],answer:'ستارهٔ نوترونی هستهٔ بسیار فشردهٔ ستاره‌ای است که پس از فروپاشی هستهٔ یک ستارهٔ پرجرم باقی می‌ماند. جرم آن می‌تواند بیش از جرم خورشید باشد، اما قطرش فقط در حد چند ده کیلومتر است. تپ‌اختر نوعی ستارهٔ نوترونی چرخان با پرتوهای منظم است؛ مگنتار نیز میدان مغناطیسی بسیار نیرومندی دارد.'},
+  {keys:['کوتوله سفید','کوتولهٔ سفید'],answer:'کوتولهٔ سفید بقایای فشردهٔ بسیاری از ستاره‌های کم‌جرم و میان‌جرم است. فشار تباهیدگی الکترون‌ها در پایداری آن نقش دارد و دیگر مانند یک ستارهٔ رشتهٔ اصلی همجوشی پایدار ندارد؛ به‌آرامی سرد می‌شود.'},
+  {keys:['ابرنواختر','سوپرنوا'],answer:'ابرنواختر انفجار ستاره‌ای بسیار پرانرژی است. بعضی از آن‌ها با فروپاشی هستهٔ ستاره‌های پرجرم و بعضی با انفجار گرماهسته‌ای کوتولهٔ سفید در سامانهٔ دوتایی رخ می‌دهند. این رویدادها در پخش عناصر شیمیایی در فضا مهم‌اند.'},
+  {keys:['کهکشان','راه شیری','اختروش','کوازار'],answer:'کهکشان سامانه‌ای گرانشی از ستاره‌ها، گاز، غبار و مادهٔ تاریک است. راه شیری کهکشان مارپیچی میله‌ای ماست. اختروش یا کوازار هستهٔ فعال و بسیار درخشان یک کهکشان دوردست است که انرژی زیادی از مادهٔ در حال برافزایش اطراف سیاه‌چالهٔ کلان‌جرم می‌گیرد.'},
+  {keys:['مهبانگ','بیگ بنگ','تابش زمینه','cmb'],answer:'مدل مهبانگ می‌گوید جهان قابل مشاهده حدود ۱۳٫۸ میلیارد سال پیش بسیار داغ و چگال بوده و از آن زمان منبسط شده است. نور آزادشده حدود ۳۸۰ هزار سال پس از آغاز انبساط، امروز به صورت تابش زمینهٔ کیهانی با دمای حدود ۲٫۷ کلوین دیده می‌شود.'},
+  {keys:['ماده تاریک','مادهٔ تاریک'],answer:'مادهٔ تاریک نور معمولی را مانند مادهٔ عادی گسیل یا جذب نمی‌کند، اما اثر گرانشی آن بر حرکت کهکشان‌ها، عدسی گرانشی و رشد ساختارهای کیهانی دیده می‌شود. هنوز نمی‌دانیم دقیقاً از چه چیزی ساخته شده است.'},
+  {keys:['انرژی تاریک','انرژیِ تاریک'],answer:'انرژی تاریک نامی برای مؤلفه‌ای در مدل کیهان‌شناسی است که با شتاب‌گرفتن انبساط جهان مرتبط است. ثابت کیهان‌شناختی ساده‌ترین توضیح در مدل استاندارد است، اما ماهیت بنیادی این پدیده هنوز روشن نیست.'},
+  {keys:['امواج گرانشی','موج گرانشی'],answer:'امواج گرانشی موج‌هایی در هندسهٔ فضا-زمان‌اند که از حرکت شتاب‌دار و نامتقارن جرم‌های بزرگ تولید می‌شوند. آشکارسازهای لیزری بسیار حساس می‌توانند اثر عبور آن‌ها را اندازه بگیرند؛ ادغام سیاه‌چاله‌ها از منابع مهم آن‌هاست.'},
+  {keys:['عدسی گرانشی','همگرایی گرانشی'],answer:'عدسی گرانشی زمانی رخ می‌دهد که جرم و انرژی مسیر نور را خم کنند. جسم پرجرم جلویی می‌تواند تصویر جرم دوردست را بزرگ‌نمایی یا چندگانه کند. این روش برای مطالعهٔ مادهٔ تاریک و کهکشان‌های بسیار دور کاربرد دارد.'},
+  {keys:['سیاره فراخورشیدی','فراخورشیدی','ناحیه زیست پذیر','حیات فرازمینی'],answer:'سیارهٔ فراخورشیدی به دور ستاره‌ای غیر از خورشید می‌گردد. دانشمندان از روش گذر، سرعت شعاعی، تصویربرداری مستقیم و ریزهم‌گرایی برای کشف آن‌ها استفاده می‌کنند. قرارگرفتن در ناحیهٔ زیست‌پذیر به‌تنهایی اثبات‌کنندهٔ وجود حیات نیست.'},
+  {keys:['عدم قطعیت','هایزنبرگ'],answer:'اصل عدم قطعیت می‌گوید پراکندگی مکان و تکانه نمی‌توانند هر دو دلخواه کوچک باشند: Δx·Δp ≥ ħ/2. این محدودیت از ساختار نظریهٔ کوانتومی می‌آید، نه فقط از ضعیف‌بودن ابزار اندازه‌گیری.'},
+  {keys:['برهم نهی','برهم‌نهی','superposition'],answer:'برهم‌نهی یعنی حالت کوانتومی می‌تواند ترکیب خطی چند حالت پایه باشد. ضرایب این ترکیب دامنه‌های احتمال‌اند و احتمال هر نتیجه از قاعدهٔ بورن به دست می‌آید. این مفهوم به معنی آن نیست که یک جسم روزمره به‌سادگی دو حالت کلاسیکی را هم‌زمان تجربه می‌کند.'},
+  {keys:['درهم تنیدگی','درهم‌تنیدگی','entanglement'],answer:'درهم‌تنیدگی یعنی دو سامانه حالت مشترکی دارند که هم‌بستگی‌های آن از پیش‌بینی‌های کلاسیکی محلی فراتر می‌رود. با این حال نمی‌توان از آن برای فرستادن پیام دلخواه سریع‌تر از نور استفاده کرد؛ برای مقایسهٔ نتایج به ارتباط عادی نیاز است.'},
+  {keys:['تونل زنی','تونل‌زنی'],answer:'در تونل‌زنی کوانتومی، احتمال غیرصفر برای یافتن ذره در سوی دیگر سدی وجود دارد که در فیزیک کلاسیک با انرژی آن قابل عبور نبود. این پدیده در واپاشی آلفا و برخی ابزارهای الکترونیکی کاربرد دارد.'},
+  {keys:['میدان هیگز','بوزون هیگز','هیگز'],answer:'میدان هیگز در سازوکار شکست تقارن الکتروضعیف نقش دارد و به جرم بوزون‌های W و Z و از راه برهم‌کنش یوکاوا به جرم کوارک‌ها و لپتون‌ها مربوط است. اما بیشتر جرم پروتون و نوترون از انرژی و برهم‌کنش قوی درون آن‌ها می‌آید، نه مستقیم از میدان هیگز.'},
+  {keys:['کوانتوم','فیزیک کوانتومی','مکانیک کوانتومی'],answer:'مکانیک کوانتومی رفتار ماده و نور در مقیاس اتمی و زیراتمی را توصیف می‌کند. مفاهیم مهم آن شامل تابع موج، قاعدهٔ بورن، برهم‌نهی، دوگانگی موج و ذره، عدم قطعیت، تونل‌زنی و درهم‌تنیدگی‌اند. این نظریه پیش‌بینی‌های احتمالاتی بسیار دقیقی دارد.'},
+  {keys:['مدل استاندارد','کوارک','لپتون','نوترینو'],answer:'مدل استاندارد ذرات بنیادی شامل شش کوارک، شش لپتون و بوزون‌های حامل برهم‌کنش‌هاست. این چارچوب سه برهم‌کنش قوی، ضعیف و الکترومغناطیسی را توصیف می‌کند؛ گرانش هنوز در آن به شکل نظریهٔ کوانتومی کامل گنجانده نشده است.'},
+  {keys:['تابش هاوکینگ','هاوکینگ'],answer:'تابش هاوکینگ پیش‌بینی نظری است که اثرهای کوانتومی در فضای خمیده باعث می‌شوند سیاه‌چاله تابش بسیار ضعیفی داشته باشد و در زمان بسیار طولانی جرم از دست بدهد. این تابش برای سیاه‌چاله‌های اخترفیزیکی مستقیماً آشکار نشده است.'}
+ );
+}
+
+// Interactive pseudo-3D cosmic scene, drawn locally with Canvas (no external libraries).
+(()=>{
+ const canvas=document.getElementById('cosmosCanvas'); if(!canvas)return;
+ const ctx=canvas.getContext('2d');
+ const sceneSelect=document.getElementById('cosmosScene');
+ const pauseBtn=document.getElementById('cosmosPause');
+ const burstBtn=document.getElementById('cosmosBurst');
+ const sceneName=document.getElementById('cosmosSceneName');
+ const sceneText=document.getElementById('cosmosSceneText');
+ const sceneNote=document.getElementById('cosmosSceneNote');
+ const reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let paused=reduceMotion, time=0, burst=0, stars=[];
+ const descriptions={
+  blackhole:['سیاه‌چاله','حلقهٔ درخشان، نمایش هنری گاز داغ در حال گردش است؛ خود افق رویداد تاریک دیده می‌شود.','این تصویر، شبیه‌سازی دقیق نسبیت عام یا رصد واقعی نیست.'],
+  neutron:['ستارهٔ نوترونی','جرم فشرده و چرخان، با دو پرتو باریک در امتداد محور مغناطیسی نمایش داده شده است.','اندازه، چرخش و پرتوها شماتیک‌اند و به مقیاس واقعی نیستند.'],
+  galaxy:['کهکشان مارپیچی','بازوهای مارپیچی از ستاره‌ها و غبار می‌سازند و مرکز کهکشان روشن‌تر نمایش داده شده است.','کهکشان واقعی ساختار سه‌بعدی پیچیده‌تری دارد؛ این یک نمایش هنری ساده است.'],
+  exoplanet:['سیارهٔ فراخورشیدی','یک سیاره در حال گردش به دور ستارهٔ میزبان را در یک نمای عمقی می‌بینی.','فاصله‌ها، اندازه‌ها و سرعت مداری برای نمایش تنظیم شده‌اند.']
+ };
+ function resize(){const dpr=Math.min(window.devicePixelRatio||1,2);const rect=canvas.getBoundingClientRect();canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));ctx.setTransform(dpr,0,0,dpr,0,0);makeStars();}
+ function makeStars(){const w=canvas.clientWidth,h=canvas.clientHeight;stars=Array.from({length:Math.round(Math.min(260,w*h/1500))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.25,a:Math.random()*.65+.25,z:Math.random()*1.8+.2}));}
+ function glow(x,y,r,color){const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,color);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
+ function drawStars(w,h){stars.forEach((s,i)=>{const tw=paused?1:.65+.35*Math.sin(time*.02+i);ctx.fillStyle=`rgba(210,235,255,${s.a*tw})`;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();});}
+ function drawBlackHole(cx,cy){glow(cx,cy,150,'rgba(64,103,255,.15)');ctx.save();ctx.translate(cx,cy);ctx.rotate(-.18+Math.sin(time*.006)*.03);for(let j=0;j<3;j++){ctx.beginPath();ctx.ellipse(0,0,112+j*12,32+j*5,0,0,Math.PI*2);ctx.strokeStyle=['rgba(255,202,112,.9)','rgba(255,110,75,.72)','rgba(171,112,255,.58)'][j];ctx.lineWidth=8-j*1.5;ctx.shadowBlur=18;ctx.shadowColor=ctx.strokeStyle;ctx.stroke();}ctx.shadowBlur=0;glow(-28,-18,53,'rgba(255,170,72,.35)');ctx.fillStyle='#010207';ctx.beginPath();ctx.arc(0,0,49,0,Math.PI*2);ctx.fill();ctx.restore();}
+ function drawNeutron(cx,cy){glow(cx,cy,95,'rgba(78,204,255,.22)');ctx.save();ctx.translate(cx,cy);ctx.rotate(.5+Math.sin(time*.012)*.08);ctx.strokeStyle='rgba(83,226,255,.8)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(0,-18);ctx.lineTo(0,-150);ctx.moveTo(0,18);ctx.lineTo(0,150);ctx.stroke();ctx.fillStyle='rgba(130,92,255,.15)';ctx.beginPath();ctx.ellipse(0,0,95,22,0,0,Math.PI*2);ctx.fill();const g=ctx.createRadialGradient(-9,-9,1,0,0,31);g.addColorStop(0,'#fff');g.addColorStop(.35,'#a8eeff');g.addColorStop(1,'#245baf');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,29,0,Math.PI*2);ctx.fill();ctx.restore();}
+ function drawGalaxy(cx,cy){glow(cx,cy,150,'rgba(153,108,255,.18)');ctx.save();ctx.translate(cx,cy);ctx.rotate(time*.004);for(let arm=0;arm<4;arm++){for(let i=0;i<115;i++){const t=i/115*5.5+arm*Math.PI/2;const r=7+i*1.35;const x=Math.cos(t)*r;const y=Math.sin(t)*r*.48;const alpha=.25+.65*(i/115);ctx.fillStyle=`rgba(${arm%2?120:170},${arm%2?205:145},255,${alpha})`;ctx.beginPath();ctx.arc(x,y,Math.max(.7,2.5-i*.012),0,Math.PI*2);ctx.fill();}}glow(0,0,32,'rgba(255,222,170,.8)');ctx.restore();}
+ function drawPlanet(cx,cy){glow(cx,cy,150,'rgba(88,140,255,.16)');const ox=Math.cos(time*.012)*102,oy=Math.sin(time*.012)*33;ctx.strokeStyle='rgba(160,203,255,.42)';ctx.beginPath();ctx.ellipse(cx,cy,105,36,-.15,0,Math.PI*2);ctx.stroke();const sg=ctx.createRadialGradient(cx-35,cy-20,1,cx,cy,24);sg.addColorStop(0,'#fff5bd');sg.addColorStop(.5,'#ffb74c');sg.addColorStop(1,'#8e3d35');ctx.fillStyle=sg;ctx.beginPath();ctx.arc(cx,cy,24,0,Math.PI*2);ctx.fill();const pg=ctx.createRadialGradient(cx+ox-8,cy+oy-8,1,cx+ox,cy+oy,15);pg.addColorStop(0,'#d5fff2');pg.addColorStop(.45,'#3f9bba');pg.addColorStop(1,'#102e68');ctx.fillStyle=pg;ctx.beginPath();ctx.arc(cx+ox,cy+oy,15,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(91,233,255,.55)';ctx.beginPath();ctx.ellipse(cx+ox,cy+oy,22,7,.35,0,Math.PI*2);ctx.stroke();}
+ function draw(){const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;ctx.clearRect(0,0,w,h);const bg=ctx.createLinearGradient(0,0,w,h);bg.addColorStop(0,'#040a19');bg.addColorStop(.6,'#09162e');bg.addColorStop(1,'#130d2e');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);drawStars(w,h);const cx=w/2,cy=h/2;const type=sceneSelect.value;if(type==='blackhole')drawBlackHole(cx,cy);else if(type==='neutron')drawNeutron(cx,cy);else if(type==='galaxy')drawGalaxy(cx,cy);else drawPlanet(cx,cy);if(burst>0){for(let i=0;i<24;i++){const a=i*Math.PI*2/24+time*.01;const r=25+(1-burst/60)*Math.min(w,h)*.42;ctx.fillStyle=`rgba(107,230,255,${burst/100})`;ctx.fillRect(cx+Math.cos(a)*r,cy+Math.sin(a)*r,2,2);}burst--;}}
+ function frame(){if(!paused)time++;draw();requestAnimationFrame(frame);}
+ function updateText(){const d=descriptions[sceneSelect.value];sceneName.textContent=d[0];sceneText.textContent=d[1];sceneNote.textContent=d[2];}
+ sceneSelect.addEventListener('change',updateText);pauseBtn.addEventListener('click',()=>{paused=!paused;pauseBtn.textContent=paused?'▶️ ادامه حرکت':'⏸ توقف حرکت';});burstBtn.addEventListener('click',()=>{burst=60;});
+ if('ResizeObserver'in window){new ResizeObserver(resize).observe(canvas);}else window.addEventListener('resize',resize);
+ resize();updateText();pauseBtn.textContent=paused?'▶️ ادامه حرکت':'⏸ توقف حرکت';frame();
+})();
+
+// COSMOS Academy — local quiz with explanation and best score saved in this browser.
+(()=>{
+ const questions=[
+  {q:'منبع اصلی انرژی خورشید چیست؟',o:['سوختن شیمیایی اکسیژن','همجوشی هسته‌ای هیدروژن','اصطکاک با فضا','واپاشی همهٔ اتم‌ها'],a:1,e:'در هستهٔ خورشید، هسته‌های هیدروژن طی زنجیره‌ای از واکنش‌ها به هلیوم تبدیل می‌شوند و انرژی آزاد می‌شود.'},
+  {q:'مرز بازگشت‌ناپذیر یک سیاه‌چاله چه نام دارد؟',o:['قرص زحل','افق رویداد','سحابی','مدار پایدار'],a:1,e:'افق رویداد مرزی علّی است؛ از درون آن هیچ پیام یا نوری به بیرون نمی‌رسد.'},
+  {q:'تابش زمینهٔ کیهانی تقریباً چه زمانی آزاد شد؟',o:['۳۸۰ هزار سال پس از آغاز انبساط','۱۳٫۸ میلیارد سال پیش، در لحظهٔ اول','۱۰۰ میلیون سال پس از شکل‌گیری زمین','امروز'],a:0,e:'حدود ۳۸۰ هزار سال پس از آغاز انبساط، جهان به اندازه‌ای سرد شد که نور توانست آزادانه حرکت کند.'},
+  {q:'کدام گزینه دربارهٔ مادهٔ تاریک درست‌تر است؟',o:['از نور مرئی ساخته شده','اثر گرانشی آن دیده می‌شود، اما ماهیتش ناشناخته است','همان انرژی تاریک است','فقط داخل زمین وجود دارد'],a:1,e:'مادهٔ تاریک از اثرهای گرانشی‌اش استنباط می‌شود؛ هنوز ذره یا ماهیت دقیق آن شناسایی نشده است.'},
+  {q:'درهم‌تنیدگی کوانتومی چه چیزی را ممکن نمی‌کند؟',o:['هم‌بستگی کوانتومی','آزمون نامساوی بل','فرستادن پیام دلخواه سریع‌تر از نور','حالت مشترک چند ذره'],a:2,e:'درهم‌تنیدگی هم‌بستگی‌های غیرکلاسیک می‌سازد، اما راهی برای فرستادن اطلاعات کنترل‌شده سریع‌تر از نور نیست.'},
+  {q:'طبق اصل عدم قطعیت، کدام دو کمیت نمی‌توانند هم‌زمان پراکندگی دلخواه کوچک داشته باشند؟',o:['جرم و بار','مکان و تکانه','رنگ و دما','انرژی و جرم سکون در همهٔ حالت‌ها'],a:1,e:'برای مکان و تکانه رابطهٔ Δx·Δp ≥ ħ/2 برقرار است.'},
+  {q:'تابع موج ψ چه چیزی را برای مکان ذره می‌دهد؟',o:['مستقیماً مکان قطعی','با |ψ|² چگالی احتمال','جرم سیاه‌چاله','دمای ذره'],a:1,e:'طبق قاعدهٔ بورن، مربع قدرمطلق تابع موج چگالی احتمال یافتن ذره را مشخص می‌کند.'},
+  {q:'بیشتر جرم پروتون از کجا می‌آید؟',o:['فقط از میدان هیگز','از انرژی و برهم‌کنش قوی درون پروتون','از نور محیط','از الکترون‌ها'],a:1,e:'بخش عمدهٔ جرم پروتون از انرژی جنبشی و میدان‌های برهم‌کنش قویِ کوارک‌ها و گلوئون‌ها ناشی می‌شود.'},
+  {q:'کدام جرم فشرده می‌تواند از هستهٔ یک ستارهٔ پرجرم باقی بماند؟',o:['ستارهٔ نوترونی','دنباله‌دار','قمر یخی','سیارک'],a:0,e:'فروپاشی هستهٔ برخی ستاره‌های پرجرم می‌تواند ستارهٔ نوترونی یا سیاه‌چاله بر جای بگذارد.'},
+  {q:'مدل استاندارد ذرات بنیادی کدام برهم‌کنش را به‌صورت نظریهٔ کوانتومی کامل در بر نمی‌گیرد؟',o:['الکترومغناطیسی','قوی','ضعیف','گرانش'],a:3,e:'مدل استاندارد سه برهم‌کنش قوی، ضعیف و الکترومغناطیسی را توصیف می‌کند؛ گرانش در آن گنجانده نشده است.'}
+ ];
+ let index=0,score=0,answered=false;const qEl=document.getElementById('academyQuestion'),opts=document.getElementById('academyOptions'),feed=document.getElementById('academyFeedback'),next=document.getElementById('academyNext'),restart=document.getElementById('academyRestart');if(!qEl)return;
+ const scoreEl=document.getElementById('academyScore'),bestEl=document.getElementById('academyBest'),counter=document.getElementById('academyCounter'),bar=document.getElementById('academyProgress');
+ let best=0;try{best=Number(localStorage.getItem('cosmosAcademyBest')||0)}catch(e){}bestEl.textContent=String(best);
+ function render(){answered=false;const q=questions[index];qEl.textContent=q.q;opts.replaceChildren();q.o.forEach((text,i)=>{const b=document.createElement('button');b.className='academy-option';b.type='button';b.textContent=text;b.addEventListener('click',()=>choose(i));opts.appendChild(b)});feed.textContent='یک گزینه را انتخاب کن.';next.disabled=true;next.textContent=index===questions.length-1?'دیدن نتیجهٔ نهایی':'سؤال بعدی ←';counter.textContent=(index+1)+' از '+questions.length;bar.style.width=(index/questions.length*100)+'%';scoreEl.textContent=String(score);}
+ function choose(i){if(answered)return;answered=true;const q=questions[index];const buttons=[...opts.querySelectorAll('button')];buttons.forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');if(j===i&&i!==q.a)b.classList.add('wrong')});if(i===q.a){score+=10;feed.textContent='✅ آفرین! درست پاسخ دادی. '+q.e;}else{feed.textContent='🔎 این پاسخ درست نبود. پاسخ صحیح: «'+q.o[q.a]+'». '+q.e;}scoreEl.textContent=String(score);next.disabled=false;bar.style.width=((index+1)/questions.length*100)+'%';}
+ next.addEventListener('click',()=>{if(!answered)return;if(index<questions.length-1){index++;render();}else{qEl.textContent='آزمون تمام شد! امتیاز تو: '+score+' از '+questions.length*10;opts.replaceChildren();feed.textContent=score>=80?'عملکرد عالی! مفاهیم اصلی را خوب فهمیده‌ای.':score>=50?'خوب بود! توضیح‌های پاسخ‌ها را مرور کن و دوباره امتحان کن.':'شروع خوبی بود؛ مطالب دانشنامه را بخوان و دوباره تلاش کن.';next.disabled=true;next.textContent='پایان آزمون';bar.style.width='100%';if(score>best){best=score;bestEl.textContent=String(best);try{localStorage.setItem('cosmosAcademyBest',String(best))}catch(e){}}}});
+ restart.addEventListener('click',()=>{index=0;score=0;render();});render();
+})();
+
+// Searchable offline knowledge index; this is retrieval, not a generative AI service.
+(()=>{
+ const input=document.getElementById('cosmosKnowledgeInput'),ask=document.getElementById('cosmosKnowledgeAsk'),out=document.getElementById('cosmosKnowledgeAnswer'),speak=document.getElementById('cosmosKnowledgeSpeak'),clear=document.getElementById('cosmosKnowledgeClear');if(!input)return;
+ const bank=[
+  {keys:['سیاه چاله','سیاه‌چاله','افق رویداد','تکینگی','قرص برافزایشی'],title:'سیاه‌چاله‌ها',text:'سیاه‌چاله ناحیه‌ای از فضا-زمان است که افق رویداد دارد. از درون افق، مسیر آینده‌رو به بیرون نمی‌رسد. گاز پیرامون آن می‌تواند در قرص برافزایشی داغ شود. ماهیت نهایی مرکز در چارچوب گرانش کوانتومی هنوز مسئله‌ای باز است.',href:'#blackholes'},
+  {keys:['ستاره نوترونی','ستارهٔ نوترونی','پالسار','تپ اختر','مگنتار'],title:'ستاره‌های نوترونی',text:'ستارهٔ نوترونی بقایای بسیار فشردهٔ برخی ستاره‌های پرجرم است. جرم زیاد در اندازه‌ای در حد ده‌ها کیلومتر جای می‌گیرد. تپ‌اخترها ستاره‌های نوترونی چرخانی هستند که پرتوهایشان از دید ما به شکل تپ‌های منظم دیده می‌شود.',href:'#astro-remnants'},
+  {keys:['کوتوله سفید','کوتولهٔ سفید'],title:'کوتولهٔ سفید',text:'کوتولهٔ سفید بقایای فشردهٔ بسیاری از ستاره‌های کم‌جرم و میان‌جرم است. فشار تباهیدگی الکترون‌ها در پایداری آن نقش دارد و با گذشت زمان سرد می‌شود.',href:'#astro-remnants'},
+  {keys:['ابرنواختر','سوپرنوا'],title:'ابرنواخترها',text:'ابرنواختر انفجار بسیار پرانرژی ستاره‌ای است. انواع مختلفی دارد و بعضی از آن‌ها در پخش عناصر شیمیایی و ساخت ستاره‌های نوترونی یا سیاه‌چاله‌ها نقش دارند.',href:'#astro-remnants'},
+  {keys:['ستاره','خورشید','همجوشی','رشته اصلی'],title:'فیزیک ستاره‌ها',text:'ستاره‌ها در تعادل میان گرانش رو به داخل و فشار رو به بیرون قرار دارند. در ستاره‌هایی مانند خورشید، همجوشی هسته‌ای هیدروژن را به هلیوم تبدیل می‌کند و انرژی آزاد می‌شود.',href:'#astro-stars'},
+  {keys:['کهکشان','راه شیری','اختروش','کوازار'],title:'کهکشان‌ها',text:'کهکشان سامانه‌ای گرانشی از ستاره‌ها، گاز، غبار و مادهٔ تاریک است. راه شیری کهکشان ماست؛ اختروش‌ها هسته‌های فعال و بسیار درخشان کهکشان‌های دوردست‌اند.',href:'#astro-galaxies'},
+  {keys:['مهبانگ','بیگ بنگ','تابش زمینه','cmb'],title:'مهبانگ و تابش زمینه',text:'مدل مهبانگ می‌گوید جهان قابل مشاهده حدود ۱۳٫۸ میلیارد سال پیش بسیار داغ و چگال بوده و از آن زمان منبسط شده است. تابش زمینهٔ کیهانی حدود ۳۸۰ هزار سال بعد آزاد شد.',href:'#astro-cosmos'},
+  {keys:['ماده تاریک','مادهٔ تاریک'],title:'مادهٔ تاریک',text:'مادهٔ تاریک از اثرهای گرانشی‌اش در کهکشان‌ها، عدسی گرانشی و ساختار کیهان استنباط می‌شود، اما ماهیت دقیق آن هنوز ناشناخته است.',href:'#astro-cosmos'},
+  {keys:['انرژی تاریک'],title:'انرژی تاریک',text:'انرژی تاریک نام مؤلفه‌ای است که با شتاب‌گرفتن انبساط جهان مرتبط است. ثابت کیهان‌شناختی ساده‌ترین مدل است؛ ماهیت بنیادی آن هنوز روشن نیست.',href:'#astro-cosmos'},
+  {keys:['امواج گرانشی','موج گرانشی'],title:'امواج گرانشی',text:'امواج گرانشی تغییرهایی در هندسهٔ فضا-زمان‌اند که از سامانه‌های عظیم شتاب‌دار مانند ادغام سیاه‌چاله‌ها می‌آیند و با آشکارسازهای بسیار حساس سنجیده می‌شوند.',href:'#astro-extreme'},
+  {keys:['عدسی گرانشی'],title:'عدسی گرانشی',text:'جرم می‌تواند مسیر نور را خم کند و تصویر اجرام دوردست را بزرگ‌نمایی یا چندگانه کند. این اثر برای بررسی مادهٔ تاریک و جهان دوردست کاربرد دارد.',href:'#astro-extreme'},
+  {keys:['سیاره فراخورشیدی','فراخورشیدی','زیست پذیر'],title:'سیاره‌های فراخورشیدی',text:'سیاره‌های فراخورشیدی به دور ستاره‌های دیگر می‌چرخند. با روش گذر و سرعت شعاعی کشف می‌شوند. ناحیهٔ زیست‌پذیر به‌تنهایی نشانهٔ وجود حیات نیست.',href:'#astro-galaxies'},
+  {keys:['عدم قطعیت','هایزنبرگ'],title:'عدم قطعیت',text:'برای مکان و تکانه رابطهٔ Δx·Δp ≥ ħ/2 برقرار است. این محدودیت بنیادی است و صرفاً از نقص دستگاه اندازه‌گیری نمی‌آید.',href:'#quantum-rules'},
+  {keys:['برهم نهی','برهم‌نهی','تابع موج','قاعده بورن'],title:'تابع موج و برهم‌نهی',text:'حالت کوانتومی می‌تواند ترکیب خطی حالت‌های پایه باشد. طبق قاعدهٔ بورن، مربع قدرمطلق تابع موج احتمال یافتن نتیجه را مشخص می‌کند.',href:'#quantum-state'},
+  {keys:['درهم تنیدگی','درهم‌تنیدگی','بل'],title:'درهم‌تنیدگی',text:'درهم‌تنیدگی هم‌بستگی‌های کوانتومی غیرکلاسیک ایجاد می‌کند؛ اما راهی برای فرستادن پیام دلخواه سریع‌تر از نور نیست.',href:'#quantum-rules'},
+  {keys:['تونل زنی','تونل‌زنی'],title:'تونل‌زنی کوانتومی',text:'تونل‌زنی یعنی احتمال غیرصفر برای عبور کوانتومی از سدی که در فیزیک کلاسیک با انرژی ذره قابل عبور نیست.',href:'#quantum-rules'},
+  {keys:['کوارک','لپتون','مدل استاندارد','نوترینو'],title:'مدل استاندارد',text:'مدل استاندارد ذرات بنیادی و سه برهم‌کنش قوی، ضعیف و الکترومغناطیسی را توصیف می‌کند؛ گرانش هنوز در آن به‌صورت نظریهٔ کوانتومی کامل وجود ندارد.',href:'#quantum-particles'},
+  {keys:['هیگز','میدان هیگز'],title:'میدان هیگز',text:'میدان هیگز به جرم W و Z و از راه برهم‌کنش‌های یوکاوا به جرم کوارک‌ها و لپتون‌ها مربوط است. بخش بزرگی از جرم پروتون از انرژی برهم‌کنش قوی می‌آید.',href:'#quantum-particles'},
+  {keys:['گرانش کوانتومی','ریسمان','گرانش حلقه‌ای'],title:'گرانش کوانتومی',text:'گرانش کوانتومی به دنبال چارچوبی برای پیوند نسبیت عام و کوانتوم است. رویکردهای گوناگونی پیشنهاد شده‌اند، اما هنوز نظریهٔ نهاییِ تجربی و پذیرفته‌شده‌ای نداریم.',href:'#quantum-frontier'},
+  {keys:['رایانه کوانتومی','رایانش کوانتومی','کیوبیت'],title:'رایانش کوانتومی',text:'کیوبیت می‌تواند برهم‌نهی داشته باشد و چند کیوبیت می‌توانند درهم‌تنیده شوند. رایانهٔ کوانتومی برای همهٔ کارها سریع‌تر نیست؛ مزیت آن به الگوریتم و نوع مسئله بستگی دارد.',href:'#quantum-tech'}
+ ];
+ function norm(s){return s.toLowerCase().replace(/[َُِّْـ]/g,'').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/‌/g,' ').trim();}
+ function search(){const q=norm(input.value);if(!q){out.textContent='لطفاً ابتدا یک سؤال یا کلیدواژه بنویس.';return;}let best=null,bestScore=0;for(const item of bank){let score=0;for(const key of item.keys){const k=norm(key);if(q.includes(k))score=Math.max(score,k.length+10);else if(k.includes(q)&&q.length>2)score=Math.max(score,q.length);}if(score>bestScore){bestScore=score;best=item;}}if(!best){out.textContent='در کتابخانهٔ محلی سایت نتیجهٔ مستقیمی پیدا نشد. عبارت را کوتاه‌تر یا با واژه‌ای دیگر امتحان کن؛ مثلاً «تکینگی»، «عدم قطعیت»، «کهکشان» یا «درهم‌تنیدگی». برای جست‌وجوی گسترده‌تر از بخش دانشنامهٔ آنلاین استفاده کن.';return;}out.textContent=best.title+'\n\n'+best.text+'\n\nمطالعهٔ بیشتر: '+location.href.split('#')[0]+best.href;out.dataset.href=best.href;}
+ ask.addEventListener('click',search);input.addEventListener('keydown',e=>{if(e.key==='Enter')search();});
+ clear.addEventListener('click',()=>{input.value='';out.textContent='سؤال تازه‌ای بنویس تا در کتابخانهٔ علمی COSMOS جست‌وجو کنیم.';out.dataset.href='';});
+ speak.addEventListener('click',()=>{if(!('speechSynthesis'in window)){out.textContent+='\n\nمرورگر این دستگاه خواندن متن با صدا را پشتیبانی نمی‌کند.';return;}const u=new SpeechSynthesisUtterance(out.textContent);u.lang='fa-IR';u.rate=.95;speechSynthesis.cancel();speechSynthesis.speak(u);});
+})();
+
+</script>
+
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  });
+}
+</script>
+
+</body></html>
